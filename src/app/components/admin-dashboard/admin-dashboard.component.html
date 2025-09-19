@@ -1,0 +1,86 @@
+<!-- components/admin-dashboard/admin-dashboard.component.html -->
+<div class="container mx-auto p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">Panel de Administración</h2>
+    <button (click)="logout()" class="btn bg-red-600 hover:bg-red-700">Cerrar Sesión</button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Formulario para agregar obra -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold mb-4">Agregar Nueva Obra</h3>
+      <form (ngSubmit)="onSubmit()" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Título</label>
+          <input type="text" [(ngModel)]="newArtwork.titulo" name="titulo" required class="w-full p-2 border rounded">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Categoría</label>
+          <select [(ngModel)]="newArtwork.categoria" name="categoria" class="w-full p-2 border rounded">
+            <option value="paisajismo">Paisajismo</option>
+            <option value="bodegones">Bodegones</option>
+            <option value="retratos">Retratos</option>
+            <option value="animalismo">Animalismo</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Año</label>
+          <input type="number" [(ngModel)]="newArtwork.anio" name="anio" required class="w-full p-2 border rounded">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Dimensiones</label>
+          <input type="text" [(ngModel)]="newArtwork.dimensiones" name="dimensiones" required class="w-full p-2 border rounded">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Técnica</label>
+          <input type="text" [(ngModel)]="newArtwork.tecnica" name="tecnica" required class="w-full p-2 border rounded">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Imagen</label>
+          <input type="file" (change)="onFileSelected($event)" accept="image/*" class="w-full p-2 border rounded">
+          <img *ngIf="previewUrl" [src]="previewUrl" class="mt-2 max-h-40 rounded">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Descripción</label>
+          <textarea [(ngModel)]="newArtwork.descripcion" name="descripcion" rows="3" class="w-full p-2 border rounded"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Proceso</label>
+          <textarea [(ngModel)]="newArtwork.proceso" name="proceso" rows="2" class="w-full p-2 border rounded"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Materiales</label>
+          <textarea [(ngModel)]="newArtwork.materiales" name="materiales" rows="2" class="w-full p-2 border rounded"></textarea>
+        </div>
+
+        <button type="submit" class="btn bg-green-600 hover:bg-green-700">Agregar Obra</button>
+      </form>
+    </div>
+
+    <!-- Lista de obras existentes -->
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold mb-4">Obras Existentes</h3>
+      <div class="space-y-4 max-h-96 overflow-y-auto">
+        <div *ngFor="let artwork of artworks" class="border-b pb-4">
+          <div class="flex items-start">
+            <img [src]="artwork.imagen" [alt]="artwork.titulo" class="w-16 h-16 object-cover rounded mr-3">
+            <div class="flex-1">
+              <h4 class="font-semibold">{{ artwork.titulo }}</h4>
+              <p class="text-sm text-gray-600">{{ artwork.categoria }} - {{ artwork.anio }}</p>
+            </div>
+            <button (click)="deleteArtwork(artwork.id)" class="text-red-600 hover:text-red-800">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

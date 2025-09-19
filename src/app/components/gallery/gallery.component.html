@@ -1,0 +1,39 @@
+<!-- components/gallery/gallery.component.html -->
+<section id="galeria" class="py-20 bg-gray-50">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">Galería de Obras</h2>
+
+    <!-- Filtros y búsqueda -->
+    <div class="mb-12">
+      <div class="flex flex-wrap justify-center gap-2 mb-4">
+        <button
+          *ngFor="let category of categories"
+          (click)="filterByCategory(category)"
+          [class]="activeCategory === category ? 'btn bg-purple-600 text-white' : 'btn-outline'"
+        >
+          {{ category === 'all' ? 'Todas' : category }}
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <div class="flex w-full max-w-md">
+          <input
+            type="text"
+            [(ngModel)]="searchTerm"
+            (input)="searchObras()"
+            placeholder="Buscar obras..."
+            class="flex-1 p-2 border rounded-l"
+          >
+          <button (click)="searchObras()" class="btn bg-purple-600 rounded-l-none">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Galería 3D -->
+    <div *ngIf="filteredArtworks.length > 0; else noResults">
+      <app-gallery3d [artworks]="filteredArtworks" [category]="activeCategory"></app-gallery3d>
+    </div>
+    <ng-template #noResults>
+      <p class="text-center text-gray-600">No se encontraron obras que coincidan con su búsqueda.</p>
+    </ng-template>
+  </div>
+</section>

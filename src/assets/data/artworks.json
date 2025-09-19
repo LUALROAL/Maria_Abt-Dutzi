@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "titulo": "Selva al amanecer",
+    "categoria": "paisajismo",
+    "anio": 2022,
+    "dimensiones": "80x60 cm",
+    "tecnica": "Óleo sobre lienzo",
+    "imagen": "assets/images/gallery/paisajismo/selva.jpg",
+    "descripcion": "Esta obra captura la esencia del amanecer en las montañas, con juegos de luz y sombra que crean una atmósfera mágica.",
+    "proceso": "Pintado alla prima, con capas de color aplicadas directamente sobre el lienzo sin dibujo preparatorio previo.",
+    "materiales": "Óleos de alta calidad sobre lienzo de lino, utilizando pinceles de pelo de marta y cerda."
+  },
+  {
+    "id": 2,
+    "titulo": "Rosa y azul",
+    "categoria": "bodegones",
+    "anio": 2021,
+    "dimensiones": "50x70 cm",
+    "tecnica": "Óleo sobre lienzo",
+    "imagen": "assets/images/gallery/bodegones/rosa-azul.jpg",
+    "descripcion": "Bodegón clásico con composición equilibrada y colores vibrantes que realzan la textura de las frutas.",
+    "proceso": "Técnica de veladuras superpuestas para lograr profundidad y realismo en las texturas.",
+    "materiales": "Óleos sobre lienzo de algodón, con pinceles de pelo sintético y natural."
+  },
+  {
+    "id": 3,
+    "titulo": "Retrato de mujer con sombrero rojo",
+    "categoria": "retratos",
+    "anio": 2023,
+    "dimensiones": "60x80 cm",
+    "tecnica": "Óleo sobre lienzo",
+    "imagen": "assets/images/gallery/retratos/sombrero-rojo.jpg",
+    "descripcion": "Retrato íntimo que captura la personalidad y expresión única de la modelo.",
+    "proceso": "Trabajo de capas con énfasis en la captura de la luz sobre los rasgos faciales.",
+    "materiales": "Óleos sobre lienzo de lino, utilizando pinceles finos de pelo de marta para los detalles."
+  },
+  {
+    "id": 4,
+    "titulo": "Panteras en la selva",
+    "categoria": "animalismo",
+    "anio": 2022,
+    "dimensiones": "70x90 cm",
+    "tecnica": "Óleo sobre lienzo",
+    "imagen": "assets/images/gallery/animalismo/panteras.jpg",
+    "descripcion": "Estudio de la luz natural en su momento más intenso del día.",
+    "proceso": "Técnica impresionista con pinceladas visibles que capturan el efecto de la luz.",
+    "materiales": "Óleos sobre lienzo de lino, con pinceles de cerda para texturas marcadas."
+  },
+  {
+    "id": 5,
+    "titulo": "Reflejos urbanos",
+    "categoria": "otros",
+    "anio": 2021,
+    "dimensiones": "80x120 cm",
+    "tecnica": "Óleo sobre lienzo",
+    "imagen": "assets/images/gallery/otros/reflejos-urbanos.jpg",
+    "descripcion": "Visión personal de la ciudad a través de sus reflejos y superficies.",
+    "proceso": "Superposición de capas transparentes para lograr efectos de profundidad y reflexión.",
+    "materiales": "Óleos y medios de transparencia sobre lienzo de lino."
+  }
+]
