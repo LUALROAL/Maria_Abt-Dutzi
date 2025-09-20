@@ -1,10 +1,11 @@
 // components/admin-dashboard/admin-dashboard.component.ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ArtworkService } from '../../services/artwork.service';
 import { AuthService } from '../../services/auth.service';
 import { Artwork } from '../../models/artwork.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,10 +14,10 @@ import { Artwork } from '../../models/artwork.model';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminDashboardComponent implements OnInit, OnDestroy {
   artworks: Artwork[] = [];
   newArtwork: Artwork = {
-    id: 0,
+    id: '',
     titulo: '',
     medidas: '',
     tecnica: '',
@@ -32,6 +33,7 @@ export class AdminDashboardComponent implements OnInit {
   editingArtwork: Artwork | null = null;
   successMessage: string = '';
   errorMessage: string = '';
+  private subscription: Subscription = new Subscription();
 
   constructor(
     private artworkService: ArtworkService,
@@ -42,30 +44,47 @@ export class AdminDashboardComponent implements OnInit {
     this.loadArtworks();
   }
 
-  loadArtworks(): void {
-    this.artworks = this.artworkService.getAllArtworks();
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
-  onSubmit(): void {
+  loadArtworks(): void {
+    this.subscription.add(
+      this.artworkService.artworks$.subscribe({
+        next: (artworks: Artwork[]) => {
+          this.artworks = artworks;
+        },
+        error: (error: any) => {
+          console.error('Error loading artworks:', error);
+          this.errorMessage = 'Error al cargar las obras';
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 3000);
+        }
+      })
+    );
+  }
+
+  async onSubmit(): Promise<void> {
     try {
       if (this.editingArtwork) {
         // Modo edición
-        this.artworkService.updateArtwork({...this.newArtwork});
+        await this.artworkService.updateArtwork({...this.newArtwork});
         this.successMessage = 'Obra actualizada correctamente';
       } else {
         // Modo creación
-        this.artworkService.addArtwork({...this.newArtwork});
+        await this.artworkService.addArtwork({...this.newArtwork});
         this.successMessage = 'Obra agregada correctamente';
       }
 
       this.resetForm();
-      this.loadArtworks();
 
       // Limpiar mensaje después de 3 segundos
       setTimeout(() => {
         this.successMessage = '';
       }, 3000);
     } catch (error) {
+      console.error('Error saving artwork:', error);
       this.errorMessage = 'Error al guardar la obra';
       setTimeout(() => {
         this.errorMessage = '';
@@ -78,20 +97,27 @@ export class AdminDashboardComponent implements OnInit {
     this.newArtwork = {...artwork};
   }
 
-  deleteArtwork(id: number): void {
+  async deleteArtwork(id: string): Promise<void> {
     if (confirm('¿Estás seguro de que deseas eliminar esta obra?')) {
-      this.artworkService.deleteArtwork(id);
-      this.loadArtworks();
-      this.successMessage = 'Obra eliminada correctamente';
-      setTimeout(() => {
-        this.successMessage = '';
-      }, 3000);
+      try {
+        await this.artworkService.deleteArtwork(id);
+        this.successMessage = 'Obra eliminada correctamente';
+        setTimeout(() => {
+          this.successMessage = '';
+        }, 3000);
+      } catch (error) {
+        console.error('Error deleting artwork:', error);
+        this.errorMessage = 'Error al eliminar la obra';
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 3000);
+      }
     }
   }
 
   resetForm(): void {
     this.newArtwork = {
-      id: 0,
+      id: '',
       titulo: '',
       medidas: '',
       tecnica: '',

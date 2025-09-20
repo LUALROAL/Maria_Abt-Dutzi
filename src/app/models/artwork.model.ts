@@ -1,6 +1,6 @@
 // models/artwork.model.ts
 export interface Artwork {
-  id: number;
+  id: string;  // Cambiado de number a string
   titulo: string;
   medidas: string;
   tecnica: string;
