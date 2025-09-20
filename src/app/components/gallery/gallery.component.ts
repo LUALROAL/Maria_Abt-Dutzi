@@ -39,9 +39,9 @@ export class GalleryComponent implements OnInit {
   private applyFilters(): void {
     let filtered = this.artworks;
 
-    // Filtrar por categoría
+    // Filtrar por género
     if (this.activeCategory !== 'all') {
-      filtered = filtered.filter(artwork => artwork.categoria === this.activeCategory);
+      filtered = filtered.filter(artwork => artwork.genero === this.activeCategory);
     }
 
     // Filtrar por término de búsqueda
@@ -49,7 +49,7 @@ export class GalleryComponent implements OnInit {
       const term = this.searchTerm.toLowerCase();
       filtered = filtered.filter(artwork =>
         artwork.titulo.toLowerCase().includes(term) ||
-        artwork.descripcion.toLowerCase().includes(term) ||
+        artwork.descripcion?.toLowerCase().includes(term) ||
         artwork.tecnica.toLowerCase().includes(term)
       );
     }

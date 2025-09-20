@@ -2,12 +2,14 @@
 export interface Artwork {
   id: number;
   titulo: string;
-  categoria: string;
-  anio: number;
-  dimensiones: string;
+  medidas: string;
   tecnica: string;
+  estilo?: string;
+  genero: string;
+  descripcion?: string;
+  estado: string;
+  precio: number;
+  moneda: string;
   imagen: string;
-  descripcion: string;
-  proceso: string;
-  materiales: string;
+  anio: number;
 }

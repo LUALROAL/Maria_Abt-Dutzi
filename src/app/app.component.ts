@@ -16,7 +16,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HeroComponent,
     TechniquesComponent,
     GalleryComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

@@ -1,10 +1,10 @@
 // components/admin-dashboard/admin-dashboard.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ArtworkService } from '../../services/artwork.service';
-import { Artwork } from '../../models/artwork.model';
 import { AuthService } from '../../services/auth.service';
+import { Artwork } from '../../models/artwork.model';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,27 +13,32 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit {
   artworks: Artwork[] = [];
   newArtwork: Artwork = {
     id: 0,
     titulo: '',
-    categoria: 'paisajismo',
-    anio: new Date().getFullYear(),
-    dimensiones: '',
+    medidas: '',
     tecnica: '',
-    imagen: '',
+    estilo: '',
+    genero: '',
     descripcion: '',
-    proceso: '',
-    materiales: ''
+    estado: '',
+    precio: 0,
+    moneda: 'EUR',
+    imagen: '',
+    anio: new Date().getFullYear()
   };
-  selectedFile: File | null = null;
-  previewUrl: string | ArrayBuffer | null = null;
+  editingArtwork: Artwork | null = null;
+  successMessage: string = '';
+  errorMessage: string = '';
 
   constructor(
     private artworkService: ArtworkService,
-    private authService: AuthService
-  ) {
+    public authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
     this.loadArtworks();
   }
 
@@ -41,63 +46,68 @@ export class AdminDashboardComponent {
     this.artworks = this.artworkService.getAllArtworks();
   }
 
-  onFileSelected(event: any): void {
-    this.selectedFile = event.target.files[0];
-
-    if (this.selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewUrl = reader.result;
-        this.newArtwork.imagen = reader.result as string;
-      };
-      reader.readAsDataURL(this.selectedFile);
-    }
-  }
-
   onSubmit(): void {
-    if (this.selectedFile) {
-      // Guardar la imagen en assets (en un caso real, se subiría a un servidor)
-      this.saveImageToAssets();
-    } else {
-      this.artworkService.addArtwork({...this.newArtwork});
+    try {
+      if (this.editingArtwork) {
+        // Modo edición
+        this.artworkService.updateArtwork({...this.newArtwork});
+        this.successMessage = 'Obra actualizada correctamente';
+      } else {
+        // Modo creación
+        this.artworkService.addArtwork({...this.newArtwork});
+        this.successMessage = 'Obra agregada correctamente';
+      }
+
       this.resetForm();
       this.loadArtworks();
+
+      // Limpiar mensaje después de 3 segundos
+      setTimeout(() => {
+        this.successMessage = '';
+      }, 3000);
+    } catch (error) {
+      this.errorMessage = 'Error al guardar la obra';
+      setTimeout(() => {
+        this.errorMessage = '';
+      }, 3000);
     }
   }
 
-  private saveImageToAssets(): void {
-    // En un entorno real, aquí se subiría la imagen a un servidor
-    // Para este ejemplo, usamos la URL base64 directamente
-    this.artworkService.addArtwork({...this.newArtwork});
-    this.resetForm();
-    this.loadArtworks();
-  }
-
-  private resetForm(): void {
-    this.newArtwork = {
-      id: 0,
-      titulo: '',
-      categoria: 'paisajismo',
-      anio: new Date().getFullYear(),
-      dimensiones: '',
-      tecnica: '',
-      imagen: '',
-      descripcion: '',
-      proceso: '',
-      materiales: ''
-    };
-    this.selectedFile = null;
-    this.previewUrl = null;
+  editArtwork(artwork: Artwork): void {
+    this.editingArtwork = artwork;
+    this.newArtwork = {...artwork};
   }
 
   deleteArtwork(id: number): void {
-    if (confirm('¿Estás seguro de que quieres eliminar esta obra?')) {
+    if (confirm('¿Estás seguro de que deseas eliminar esta obra?')) {
       this.artworkService.deleteArtwork(id);
       this.loadArtworks();
+      this.successMessage = 'Obra eliminada correctamente';
+      setTimeout(() => {
+        this.successMessage = '';
+      }, 3000);
     }
   }
 
-  logout(): void {
-    this.authService.logout();
+  resetForm(): void {
+    this.newArtwork = {
+      id: 0,
+      titulo: '',
+      medidas: '',
+      tecnica: '',
+      estilo: '',
+      genero: '',
+      descripcion: '',
+      estado: '',
+      precio: 0,
+      moneda: 'EUR',
+      imagen: '',
+      anio: new Date().getFullYear()
+    };
+    this.editingArtwork = null;
+  }
+
+  cancelEdit(): void {
+    this.resetForm();
   }
 }
