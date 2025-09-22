@@ -1,19 +1,69 @@
 <!-- techniques.component.html -->
-<section id="tecnica" class="py-20 bg-white">
-  <div class="container mx-auto">
-    <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">Técnicas y Materiales</h2>
+<section id="tecnica" class="py-20 bg-background">
+  <div class="container">
+    <div class="text-center mb-16 animate-fade-in-up">
+      <span class="inline-block px-4 py-2 bg-accent/30 text-primary-dark rounded-full text-sm font-medium mb-4">
+        Especialidades Artísticas
+      </span>
+      <h2 class="text-4xl md:text-5xl font-light text-primary-dark mb-4">Técnicas y Materiales</h2>
+      <p class="text-lg text-text-light max-w-2xl mx-auto">Domino diversas técnicas que me permiten expresar mi visión artística con la máxima calidad y autenticidad.</p>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-purple-700 mb-3">Óleo sobre lienzo</h3>
-        <p class="text-gray-600">Trabajo con óleos de alta calidad sobre lienzo de lino, permitiendo una mayor durabilidad y intensidad de color.</p>
+      <!-- Tarjeta 1 -->
+      <div class="card p-8 text-center group hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+          <span class="text-2xl text-primary-dark">🎨</span>
+        </div>
+        <h3 class="text-xl font-semibold text-primary-dark mb-4">Óleo sobre lienzo</h3>
+        <p class="text-text-light leading-relaxed">Trabajo con óleos de alta calidad sobre lienzo de lino, permitiendo una mayor durabilidad y intensidad de color en cada obra.</p>
       </div>
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-purple-700 mb-3">Pincel de pelo (tercio pelo)</h3>
-        <p class="text-gray-600">Utilizo pinceles de pelo natural que permiten un mayor control de la pintura y la creación de texturas únicas.</p>
+
+      <!-- Tarjeta 2 -->
+      <div class="card p-8 text-center group hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.1s;">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+          <span class="text-2xl text-primary-dark">🖌️</span>
+        </div>
+        <h3 class="text-xl font-semibold text-primary-dark mb-4">Pincel de pelo (tercio pelo)</h3>
+        <p class="text-text-light leading-relaxed">Utilizo pinceles de pelo natural que permiten un mayor control de la pintura y la creación de texturas únicas y expresivas.</p>
       </div>
-      <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-        <h3 class="text-xl font-semibold text-purple-700 mb-3">Técnicas mixtas</h3>
-        <p class="text-gray-600">Combino técnicas tradicionales con enfoques contemporáneos para crear obras únicas y expresivas.</p>
+
+      <!-- Tarjeta 3 -->
+      <div class="card p-8 text-center group hover:transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+          <span class="text-2xl text-primary-dark">✨</span>
+        </div>
+        <h3 class="text-xl font-semibold text-primary-dark mb-4">Técnicas mixtas</h3>
+        <p class="text-text-light leading-relaxed">Combino técnicas tradicionales con enfoques contemporáneos para crear obras únicas que trascienden los límites convencionales.</p>
+      </div>
+    </div>
+
+    <!-- Información adicional -->
+    <div class="mt-16 bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-accent/30 animate-fade-in-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-light text-primary-dark mb-4">Compromiso con la calidad</h3>
+          <p class="text-text-light mb-4">Cada material es cuidadosamente seleccionado para garantizar la permanencia y belleza de las obras a través del tiempo.</p>
+          <ul class="space-y-2 text-text-light">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              Pigmentos de la más alta calidad
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              Lienzos de lino premium
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+              Barnices de protección especializados
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-primary/5 to-accent/10 rounded-lg p-6 text-center">
+          <div class="text-3xl text-primary-dark mb-2">15+</div>
+          <div class="text-text-light font-medium">Años perfeccionando técnicas</div>
+          <div class="text-sm text-text-light mt-2">Experiencia que se refleja en cada pincelada</div>
+        </div>
       </div>
     </div>
   </div>
