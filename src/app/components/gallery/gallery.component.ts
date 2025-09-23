@@ -1,5 +1,5 @@
 // components/gallery/gallery.component.ts
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArtworkCarouselComponent } from '../artwork-carousel/artwork-carousel.component';
 import { ArtworkService } from '../../services/artwork.service';
@@ -19,10 +19,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
   filteredArtworks: Artwork[] = [];
 
   availableCategories: string[] = ['all', 'paisajismo', 'bodegones', 'retratos', 'animalismo', 'otros'];
-  selectedCategories: string[] = ['all'];
-  showDropdown: boolean = false;
-
+  selectedCategory: string = 'all';
   searchTerm: string = '';
+
   private subscription: Subscription = new Subscription();
 
   constructor(private artworkService: ArtworkService) {}
@@ -33,14 +32,6 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent) {
-    const target = event.target as HTMLElement;
-    if (!target.closest('.multiselect-container')) {
-      this.showDropdown = false;
-    }
   }
 
   loadArtworks(): void {
@@ -57,71 +48,40 @@ export class GalleryComponent implements OnInit, OnDestroy {
     );
   }
 
-  toggleDropdown(): void {
-    this.showDropdown = !this.showDropdown;
+  filterByCategory(category: string): void {
+    this.selectedCategory = category;
+    this.applyFilters();
   }
 
-  toggleCategory(category: string): void {
-    if (category === 'all') {
-      if (this.selectedCategories.includes('all')) {
-        this.selectedCategories = [];
-      } else {
-        this.selectedCategories = ['all'];
-      }
+  getCategoryButtonClass(category: string): string {
+    const baseClasses = "px-6 py-3 rounded-full text-sm font-medium transition-all duration-300";
+
+    if (this.selectedCategory === category) {
+      return `${baseClasses} bg-primary text-white shadow-lg transform hover:scale-105`;
     } else {
-      // Remover 'all' si se selecciona una categoría específica
-      this.selectedCategories = this.selectedCategories.filter(c => c !== 'all');
-
-      if (this.selectedCategories.includes(category)) {
-        // Remover la categoría
-        this.selectedCategories = this.selectedCategories.filter(c => c !== category);
-
-        // Si no hay categorías seleccionadas, seleccionar 'all'
-        if (this.selectedCategories.length === 0) {
-          this.selectedCategories = ['all'];
-        }
-      } else {
-        // Agregar la categoría
-        this.selectedCategories.push(category);
-      }
+      return `${baseClasses} bg-white/80 backdrop-blur-sm text-primary-dark border border-accent hover:bg-primary/10 hover:border-primary/30`;
     }
-
-    this.applyFilters();
   }
 
-  selectAllCategories(): void {
-    this.selectedCategories = ['all'];
-    this.applyFilters();
-  }
-
-  clearSelection(): void {
-    this.selectedCategories = ['all'];
-    this.applyFilters();
-  }
-
-  getSelectedCategoriesText(): string {
-    if (this.selectedCategories.includes('all') || this.selectedCategories.length === this.availableCategories.length - 1) {
-      return 'Todas las categorías';
-    }
-
-    if (this.selectedCategories.length === 0) {
-      return 'Seleccionar categorías';
-    }
-
-    if (this.selectedCategories.length === 1) {
-      return this.selectedCategories[0];
-    }
-
-    return `${this.selectedCategories.length} categorías seleccionadas`;
+  getCategoryDisplayName(category: string): string {
+    const names: { [key: string]: string } = {
+      'all': 'Todas las Obras',
+      'paisajismo': 'Paisajismo',
+      'bodegones': 'Bodegones',
+      'retratos': 'Retratos',
+      'animalismo': 'Animalismo',
+      'otros': 'Otras Obras'
+    };
+    return names[category] || category;
   }
 
   applyFilters(): void {
     let filtered = this.artworks;
 
-    // Filtrar por categorías seleccionadas
-    if (!this.selectedCategories.includes('all') && this.selectedCategories.length > 0) {
+    // Filtrar por categoría seleccionada
+    if (this.selectedCategory !== 'all') {
       filtered = filtered.filter(artwork =>
-        this.selectedCategories.includes(artwork.categoria.toLowerCase())
+        artwork.categoria.toLowerCase() === this.selectedCategory
       );
     }
 
@@ -138,14 +98,14 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.filteredArtworks = filtered;
   }
 
-  // Mantener compatibilidad con el método existente
-  searchObras(): void {
+  clearFilters(): void {
+    this.selectedCategory = 'all';
+    this.searchTerm = '';
     this.applyFilters();
   }
 
-  // Mantener compatibilidad con el método existente
-  filterByCategory(category: string): void {
-    this.selectedCategories = [category];
+  // Mantener compatibilidad
+  searchObras(): void {
     this.applyFilters();
   }
 }
