@@ -168,7 +168,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(139, 92, 246, 0.6);
+  background: rgba(135, 135, 135, 0.6);
   color: white;
   width: 40px;
   height: 40px;
@@ -179,24 +179,41 @@
   cursor: pointer;
   z-index: 20;
   transition: all 0.3s ease;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   border: none;
   outline: none;
   padding-bottom: 4px;
+  animation: pulse 2s infinite; /* Efecto de palpito continuo */
 
   &:hover {
     background: rgba(139, 92, 246, 0.8);
     transform: translateY(-50%) scale(1.1);
+    animation: none; /* Detiene el pulso al hacer hover */
   }
 
   &.left {
     left: 20px;
     padding-right: 3px;
+    margin-left: 100px !important;
   }
 
   &.right {
     right: 20px;
     padding-left: 3px;
+    margin-right: 100px !important;
+  }
+}
+
+/* Animación de palpito más llamativa */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
   }
 }
 
@@ -278,6 +295,7 @@
     width: 35px;
     height: 35px;
     font-size: 1.2rem;
+    margin-top: 195px !important;
 
     &.left {
       left: 10px;
@@ -287,4 +305,389 @@
       right: 10px;
     }
   }
+}
+// components/artwork-carousel/artwork-carousel.component.scss
+// ... (mantener todos los estilos existentes del carrusel)
+
+// Estilos del modal - IMAGENES DEL MISMO TAMAÑO Y ZOOM
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(15px);
+}
+
+.modal-content {
+  background: rgb(var(--color-background));
+  border-radius: 24px;
+  max-width: 95%;
+  max-height: 95%;
+  width: 1400px;
+  height: 800px; // Altura fija para consistencia
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.3s ease-out;
+
+  @media (max-width: 1200px) {
+    width: 1200px;
+    height: 700px;
+  }
+
+  @media (max-width: 768px) {
+    max-width: 98%;
+    max-height: 98%;
+    width: 100%;
+    height: auto;
+    min-height: 90vh;
+    margin: 10px;
+    flex-direction: column;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: rgba(var(--color-primary), 0.9);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: 300;
+
+  &:hover {
+    background: rgb(var(--color-primary));
+    transform: scale(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.modal-body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.modal-image-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  // Todas las imágenes del mismo tamaño
+  .modal-image {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: zoom-in;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+    // Estados del zoom
+    &.zoomed {
+      cursor: zoom-out;
+      transform: scale(1.8);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+      @media (max-width: 768px) {
+        transform: scale(1.5);
+      }
+    }
+
+    // Efecto hover sutil cuando no está zoomed
+    &:not(.zoomed):hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 350px;
+    max-height: 50vh;
+
+    .modal-image {
+      width: 90%;
+      height: 90%;
+    }
+  }
+}
+
+// Controles de navegación del modal
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(var(--color-primary), 0.8);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-weight: 300;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: rgb(var(--color-primary));
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  &.modal-prev {
+    left: 30px;
+    padding-right: 5px;
+  }
+
+  &.modal-next {
+    right: 30px;
+    padding-left: 5px;
+  }
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+
+    &.modal-prev {
+      left: 15px;
+    }
+
+    &.modal-next {
+      right: 15px;
+    }
+  }
+}
+
+.modal-info {
+  flex: 0 0 450px;
+  padding: 50px 40px;
+  overflow-y: auto;
+  background: white;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1200px) {
+    flex: 0 0 400px;
+    padding: 40px 30px;
+  }
+
+  @media (max-width: 768px) {
+    flex: none;
+    max-height: 50vh;
+    padding: 30px 20px;
+  }
+}
+
+.modal-title {
+  color: rgb(var(--color-primary-dark));
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.3;
+}
+
+.modal-technique {
+  color: rgb(var(--color-text-light));
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 25px;
+  font-weight: 300;
+  border-bottom: 2px solid rgba(var(--color-accent), 0.3);
+  padding-bottom: 15px;
+}
+
+.modal-description {
+  color: rgb(var(--color-text));
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.artwork-details {
+  border-top: 2px solid rgba(var(--color-accent), 0.3);
+  padding-top: 25px;
+  margin-bottom: 35px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(var(--color-accent), 0.1);
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.detail-label {
+  color: rgb(var(--color-text-light));
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.detail-value {
+  color: rgb(var(--color-text));
+  font-weight: 400;
+  text-align: right;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  margin-top: auto;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
+}
+
+.btn-buy, .btn-contact {
+  padding: 18px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.btn-buy {
+  background: linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-primary-dark)) 100%);
+  color: white;
+  box-shadow: 0 5px 15px rgba(var(--color-primary), 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, rgb(var(--color-primary-dark)) 0%, rgb(var(--color-primary)) 100%);
+  }
+}
+
+.btn-contact {
+  background: transparent;
+  color: rgb(var(--color-primary));
+  border: 2px solid rgb(var(--color-primary));
+  box-shadow: 0 3px 10px rgba(var(--color-primary), 0.1);
+
+  &:hover {
+    background: rgb(var(--color-primary));
+    color: white;
+  }
+}
+
+.btn-icon {
+  font-size: 1.3rem;
+}
+
+// Animaciones mejoradas
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(15px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Asegurar que la imagen del carrusel sea clickeable
+.artwork-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+// Indicador de zoom
+.zoom-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  animation: fadeInOut 3s ease-in-out;
+  opacity: 0;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
 }

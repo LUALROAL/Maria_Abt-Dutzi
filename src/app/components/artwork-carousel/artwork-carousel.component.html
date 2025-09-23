@@ -14,14 +14,19 @@
       [class.hidden]="isHidden(i)"
       (click)="goToSlide(i)"
     >
-      <img [src]="artwork.imagen" [alt]="artwork.titulo">
+      <img
+        [src]="artwork.imagen"
+        [alt]="artwork.titulo"
+        (click)="$event.stopPropagation(); openModal()"
+        class="artwork-image"
+      >
     </div>
   </div>
 
   <button class="nav-arrow right" (click)="next()">›</button>
 </div>
 
-<div class="artwork-info">     i
+<div class="artwork-info">
   <h2 class="artwork-title">{{ currentArtwork?.titulo }}</h2>
   <p class="artwork-technique">{{ currentArtwork?.tecnica }}</p>
   <p *ngIf="currentArtwork?.descripcion" class="artwork-description">{{ currentArtwork?.descripcion }}</p>
@@ -34,4 +39,65 @@
     [class.active]="i === currentIndex"
     (click)="goToSlide(i)"
   ></div>
+</div>
+
+<!-- Modal para vista ampliada -->
+<div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeModal()">×</button>
+
+    <div class="modal-body">
+      <div class="modal-image-container">
+        <img
+          [src]="currentArtwork?.imagen"
+          [alt]="currentArtwork?.titulo"
+          class="modal-image"
+          [class.zoomed]="isZoomed"
+          (click)="toggleZoom()"
+        >
+
+        <!-- Indicador de zoom -->
+        <div *ngIf="showZoomIndicator" class="zoom-indicator">
+          {{ isZoomed ? 'Haz clic para quitar zoom' : 'Haz clic para hacer zoom' }}
+        </div>
+
+        <!-- Navegación dentro del modal -->
+        <button class="modal-nav modal-prev" (click)="prevInModal()">‹</button>
+        <button class="modal-nav modal-next" (click)="nextInModal()">›</button>
+      </div>
+
+      <div class="modal-info">
+        <h2 class="modal-title">{{ currentArtwork?.titulo }}</h2>
+        <p class="modal-technique">{{ currentArtwork?.tecnica }}</p>
+        <p *ngIf="currentArtwork?.descripcion" class="modal-description">{{ currentArtwork?.descripcion }}</p>
+
+        <!-- Información adicional que podría tener la obra -->
+        <div *ngIf="currentArtwork" class="artwork-details">
+          <div class="detail-item">
+            <span class="detail-label">Dimensiones:</span>
+            <span class="detail-value">{{ currentArtwork.medidas }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Materiales:</span>
+            <span class="detail-value">{{ currentArtwork.tecnica }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Año:</span>
+            <span class="detail-value">{{ currentArtwork.anio }}</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn-buy">
+            <span class="btn-icon">🛒</span>
+            Comprar Obra
+          </button>
+          <button class="btn-contact">
+            <span class="btn-icon">💬</span>
+            Consultar Disponibilidad
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
