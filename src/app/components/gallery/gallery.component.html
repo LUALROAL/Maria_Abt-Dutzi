@@ -1,39 +1,85 @@
 <!-- components/gallery/gallery.component.html -->
 <section id="galeria" class="py-20 bg-gray-50">
   <div class="container mx-auto">
-    <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">Galería de Obras</h2>
+    <h1 class="gallery-title">Galería de Obras</h1>
 
     <!-- Filtros y búsqueda -->
     <div class="mb-12">
-      <div class="flex flex-wrap justify-center gap-2 mb-4">
-        <button
-          *ngFor="let category of categories"
-          (click)="filterByCategory(category)"
-          [class]="activeCategory === category ? 'btn bg-purple-600 text-white' : 'btn-outline'"
-        >
-          {{ category === 'all' ? 'Todas' : category }}
-        </button>
+      <!-- Multiselect de categorías -->
+      <div class="flex justify-center mb-6">
+        <div class="w-full max-w-2xl">
+          <label class="block text-sm font-medium text-gray-700 mb-2 text-center">
+            Filtrar por categorías:
+          </label>
+          <div class="multiselect-container">
+            <div class="selected-categories" (click)="toggleDropdown()">
+              <span class="selected-text">
+                {{ getSelectedCategoriesText() }}
+              </span>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+
+            <div class="dropdown-menu" [class.show]="showDropdown">
+              <div class="dropdown-item">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    [checked]="selectedCategories.includes('all')"
+                    (change)="toggleCategory('all')"
+                  >
+                  <span class="checkmark"></span>
+                  Todas las categorías
+                </label>
+              </div>
+
+              <div class="dropdown-item" *ngFor="let category of availableCategories">
+                <label class="checkbox-label" *ngIf="category !== 'all'">
+                  <input
+                    type="checkbox"
+                    [checked]="selectedCategories.includes(category)"
+                    (change)="toggleCategory(category)"
+                  >
+                  <span class="checkmark"></span>
+                  {{ category }}
+                </label>
+              </div>
+
+              <div class="dropdown-actions">
+                <button type="button" (click)="selectAllCategories()" class="action-btn select-all">
+                  Seleccionar todas
+                </button>
+                <button type="button" (click)="clearSelection()" class="action-btn clear">
+                  Limpiar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Búsqueda -->
       <div class="flex justify-center">
         <div class="flex w-full max-w-md">
           <input
             type="text"
             [(ngModel)]="searchTerm"
-            (input)="searchObras()"
+            (input)="applyFilters()"
             placeholder="Buscar obras..."
-            class="flex-1 p-2 border rounded-l"
+            class="flex-1 p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
-          <button (click)="searchObras()" class="btn bg-purple-600 rounded-l-none">Buscar</button>
+          <button (click)="applyFilters()" class="btn-primary bg-purple-600 text-white px-6 rounded-r-lg hover:bg-purple-700 transition-colors">
+            Buscar
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Galería 3D -->
+    <!-- Carrusel de obras -->
     <div *ngIf="filteredArtworks.length > 0; else noResults">
-      <app-gallery3d [artworks]="filteredArtworks" [category]="activeCategory"></app-gallery3d>
+      <app-artwork-carousel [artworks]="filteredArtworks"></app-artwork-carousel>
     </div>
     <ng-template #noResults>
-      <p class="text-center text-gray-600">No se encontraron obras que coincidan con su búsqueda.</p>
+      <p class="text-center text-gray-600 text-lg">No se encontraron obras que coincidan con su búsqueda.</p>
     </ng-template>
   </div>
 </section>

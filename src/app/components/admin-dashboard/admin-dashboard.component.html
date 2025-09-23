@@ -76,6 +76,21 @@
               class="w-full p-2 border rounded"
             >
           </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Categoría *</label>
+            <select
+              [(ngModel)]="newArtwork.categoria"
+              name="categoria"
+              required
+              class="w-full p-2 border rounded"
+            >
+              <option value="paisajismo">Paisajismo</option>
+              <option value="bodegones">Bodegones</option>
+              <option value="retratos">Retratos</option>
+              <option value="animalismo">Animalismo</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
         </div>
 
         <!-- Columna derecha -->
@@ -125,6 +140,18 @@
               name="anio"
               class="w-full p-2 border rounded"
             >
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-1">Vendido *</label>
+            <select
+              [(ngModel)]="newArtwork.vendido"
+              name="vendido"
+              required
+              class="w-full p-2 border rounded"
+            >
+              <option [ngValue]="false">No Vendido</option>
+              <option [ngValue]="true">Vendido</option>
+            </select>
           </div>
           <div>
             <label class="block text-sm font-medium mb-1">URL de la Imagen *</label>

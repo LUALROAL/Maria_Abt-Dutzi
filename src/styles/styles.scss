@@ -134,3 +134,73 @@
     opacity: 0.3;
   }
 }
+
+
+// Agregar al final de styles.scss
+
+// Estilos específicos para la galería 3D
+#drag-container {
+  touch-action: none;
+}
+
+// Mejoras de responsividad para la galería
+@media (max-width: 768px) {
+  #drag-container, #spin-container {
+    margin-top: 15%;
+    transform: rotateX(-5deg) scale(0.8);
+  }
+
+  #ground {
+    width: 600px;
+    height: 600px;
+  }
+
+  #drag-container p {
+    font-size: 1rem;
+  }
+}
+
+// Efectos de hover mejorados para las imágenes de la galería
+.artwork-image {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    z-index: 10;
+    filter: brightness(1.1);
+  }
+}
+
+// Animaciones de carga para la galería
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gallery-enter {
+  animation: galleryFadeIn 0.6s ease-out;
+}
+
+
+// Estilos para los botones de filtro
+.btn-primary {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300;
+}
+
+.btn-outline {
+  @apply border border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white;
+}
+
+.bg-purple-600_text-white {
+  @apply bg-purple-600 text-white;
+}
+
+.rounded-l-none {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

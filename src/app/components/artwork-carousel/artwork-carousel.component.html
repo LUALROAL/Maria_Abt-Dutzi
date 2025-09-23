@@ -1,0 +1,37 @@
+<!-- components/artwork-carousel/artwork-carousel.component.html -->
+<div class="carousel-container">
+  <button class="nav-arrow left" (click)="prev()">‹</button>
+
+  <div class="carousel-track">
+    <div
+      *ngFor="let artwork of artworks; let i = index"
+      class="card"
+      [class.center]="i === currentIndex"
+      [class.left-1]="i === left1Index"
+      [class.left-2]="i === left2Index"
+      [class.right-1]="i === right1Index"
+      [class.right-2]="i === right2Index"
+      [class.hidden]="isHidden(i)"
+      (click)="goToSlide(i)"
+    >
+      <img [src]="artwork.imagen" [alt]="artwork.titulo">
+    </div>
+  </div>
+
+  <button class="nav-arrow right" (click)="next()">›</button>
+</div>
+
+<div class="artwork-info">     i
+  <h2 class="artwork-title">{{ currentArtwork?.titulo }}</h2>
+  <p class="artwork-technique">{{ currentArtwork?.tecnica }}</p>
+  <p *ngIf="currentArtwork?.descripcion" class="artwork-description">{{ currentArtwork?.descripcion }}</p>
+</div>
+
+<div class="dots">
+  <div
+    *ngFor="let artwork of artworks; let i = index"
+    class="dot"
+    [class.active]="i === currentIndex"
+    (click)="goToSlide(i)"
+  ></div>
+</div>

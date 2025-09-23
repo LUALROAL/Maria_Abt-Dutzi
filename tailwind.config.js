@@ -27,6 +27,8 @@ module.exports = {
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease-out',
         'float': 'float 6s ease-in-out infinite',
+        'spin': 'spin 60s infinite linear',
+        'spin-revert': 'spinRevert 60s infinite linear',
       }
     },
   },

@@ -28,7 +28,9 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
     precio: 0,
     moneda: 'EUR',
     imagen: '',
-    anio: new Date().getFullYear()
+    anio: new Date().getFullYear(),
+    categoria: '',
+    vendido: false
   };
   editingArtwork: Artwork | null = null;
   successMessage: string = '';
@@ -128,7 +130,9 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
       precio: 0,
       moneda: 'EUR',
       imagen: '',
-      anio: new Date().getFullYear()
+      anio: new Date().getFullYear(),
+      categoria: '',
+      vendido: false
     };
     this.editingArtwork = null;
   }

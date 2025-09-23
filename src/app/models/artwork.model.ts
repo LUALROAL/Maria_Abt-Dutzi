@@ -12,4 +12,6 @@ export interface Artwork {
   moneda: string;
   imagen: string;
   anio: number;
+  categoria: string;
+  vendido: boolean;
 }
