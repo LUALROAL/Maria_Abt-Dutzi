@@ -24,13 +24,21 @@ export class ArtworkCarouselComponent implements OnInit {
   left1Index: number = 0;
   right1Index: number = 0;
   right2Index: number = 0;
-   isMobile: boolean = false;
+  isMobile: boolean = false;
+
+  // --- START: Properties for panning ---
+  isPanning: boolean = false;
+  wasPanning: boolean = false; // To differentiate pan from click
+  startX: number = 0;
+  startY: number = 0;
+  translateX: number = 0;
+  translateY: number = 0;
+  // --- END: Properties for panning ---
 
   ngOnInit() {
     this.updateCarousel(0);
-     this.checkIfMobile();
-
-       window.addEventListener('resize', () => this.checkIfMobile());
+    this.checkIfMobile();
+    window.addEventListener('resize', () => this.checkIfMobile());
   }
 
   ngOnChanges() {
@@ -43,7 +51,7 @@ export class ArtworkCarouselComponent implements OnInit {
     const total = this.artworks.length;
     this.currentIndex = (newIndex + total) % total;
     this.currentArtwork = this.artworks[this.currentIndex];
-    this.isZoomed = false; // Reset zoom al cambiar de imagen
+    this.resetZoomAndPan(); // Reset zoom and pan when image changes
 
     // Calcular índices adyacentes
     this.left2Index = (this.currentIndex - 2 + total) % total;
@@ -79,30 +87,44 @@ export class ArtworkCarouselComponent implements OnInit {
   // Modal methods
   openModal() {
     this.isModalOpen = true;
-    this.isZoomed = false;
+    this.resetZoomAndPan();
     document.body.style.overflow = 'hidden';
   }
 
   closeModal() {
     this.isModalOpen = false;
-    this.isZoomed = false;
+    this.resetZoomAndPan();
     document.body.style.overflow = '';
   }
 
   // Navegación dentro del modal
   nextInModal() {
     this.next();
-    this.isZoomed = false; // Reset zoom al navegar
   }
 
   prevInModal() {
     this.prev();
-    this.isZoomed = false; // Reset zoom al navegar
   }
 
-  // Funcionalidad de zoom
-  toggleZoom() {
+  // --- START: Zoom and Pan Logic ---
+
+  resetZoomAndPan() {
+    this.isZoomed = false;
+    this.isPanning = false;
+    this.wasPanning = false;
+    this.translateX = 0;
+    this.translateY = 0;
+  }
+
+  toggleZoom(event: MouseEvent | TouchEvent) {
+    if (this.wasPanning) {
+      this.wasPanning = false;
+      return;
+    }
+
     this.isZoomed = !this.isZoomed;
+    this.translateX = 0;
+    this.translateY = 0;
 
     if (this.isZoomed) {
       this.showZoomIndicator = true;
@@ -112,12 +134,46 @@ export class ArtworkCarouselComponent implements OnInit {
     }
   }
 
+  onPanStart(event: MouseEvent | TouchEvent) {
+    if (!this.isZoomed) return;
+    event.preventDefault();
+    this.isPanning = true;
+    const point = 'touches' in event ? event.touches[0] : event;
+    this.startX = point.clientX - this.translateX;
+    this.startY = point.clientY - this.translateY;
+  }
+
+  onPanMove(event: MouseEvent | TouchEvent) {
+    if (!this.isPanning || !this.isZoomed) return;
+    event.preventDefault();
+    this.wasPanning = true;
+    const point = 'touches' in event ? event.touches[0] : event;
+    this.translateX = point.clientX - this.startX;
+    this.translateY = point.clientY - this.startY;
+  }
+
+  onPanEnd(event: MouseEvent | TouchEvent) {
+    if (!this.isPanning) return;
+    event.preventDefault();
+    this.isPanning = false;
+  }
+
+  getImageTransform(): string {
+    if (!this.isZoomed) {
+      return 'scale(1)';
+    }
+    const scale = this.isMobile ? 2.5 : 1.8;
+    return `scale(${scale}) translate(${this.translateX}px, ${this.translateY}px)`;
+  }
+  // --- END: Zoom and Pan Logic ---
+
+
   // Cerrar modal con ESC key
   @HostListener('document:keydown.escape', ['$event'])
   handleEscapeKey(event: KeyboardEvent) {
     if (this.isModalOpen) {
       if (this.isZoomed) {
-        this.isZoomed = false; // Primero quitar zoom
+        this.resetZoomAndPan(); // Quitar zoom y resetear pan
       } else {
         this.closeModal();
       }
@@ -126,14 +182,14 @@ export class ArtworkCarouselComponent implements OnInit {
 
   @HostListener('document:keydown.arrowright', ['$event'])
   handleRightArrow(event: KeyboardEvent) {
-    if (this.isModalOpen) {
+    if (this.isModalOpen && !this.isZoomed) {
       this.nextInModal();
     }
   }
 
   @HostListener('document:keydown.arrowleft', ['$event'])
   handleLeftArrow(event: KeyboardEvent) {
-    if (this.isModalOpen) {
+    if (this.isModalOpen && !this.isZoomed) {
       this.prevInModal();
     }
   }
@@ -141,11 +197,11 @@ export class ArtworkCarouselComponent implements OnInit {
   @HostListener('document:keydown.z', ['$event'])
   handleZKey(event: KeyboardEvent) {
     if (this.isModalOpen) {
-      this.toggleZoom();
+      this.toggleZoom(new MouseEvent('click'));
     }
   }
 
-    checkIfMobile() {
+  checkIfMobile() {
     this.isMobile = window.innerWidth <= 768;
   }
 }

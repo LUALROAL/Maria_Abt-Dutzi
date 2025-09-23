@@ -510,9 +510,13 @@
 
     /* Estados del zoom - MEJORADO PARA MÓVILES */
     &.zoomed {
-      cursor: zoom-out;
+      cursor: grab; // Change to grab when zoomed
       transform: scale(1.8);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+
+      &.panning {
+        cursor: grabbing; // While actively panning
+      }
 
       @media (max-width: 768px) {
         transform: scale(2.5); /* Más zoom en móviles */
