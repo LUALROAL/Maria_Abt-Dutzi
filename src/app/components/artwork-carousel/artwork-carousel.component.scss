@@ -192,15 +192,15 @@
   }
 
   &.left {
-    left: 20px;
+    left: 50px;
     padding-right: 3px;
-    margin-left: 100px !important;
+    margin-left: 120px !important;
   }
 
   &.right {
-    right: 20px;
+    right: 50px;
     padding-left: 3px;
-    margin-right: 100px !important;
+    margin-right: 120px !important;
   }
 }
 
@@ -296,14 +296,20 @@
     height: 35px;
     font-size: 1.2rem;
     margin-top: 195px !important;
+    padding-bottom: 2px;
+    animation: pulse 2s infinite;
 
     &.left {
-      left: 10px;
-    }
+    left: 20px;
+    padding-right: 3px;
+    margin-left: 10px !important;
+  }
 
-    &.right {
-      right: 10px;
-    }
+  &.right {
+    right: 20px;
+    padding-left: 3px;
+    margin-right: 10px !important;
+  }
   }
 }
 // components/artwork-carousel/artwork-carousel.component.scss
