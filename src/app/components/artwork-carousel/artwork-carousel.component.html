@@ -41,7 +41,7 @@
   ></div>
 </div>
 
-<!-- Modal para vista ampliada -->
+<!-- Modal para vista ampliada - VERSIÓN MEJORADA PARA RESPONSIVIDAD -->
 <div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="modal-close" (click)="closeModal()">×</button>
@@ -56,12 +56,13 @@
           (click)="toggleZoom()"
         >
 
-        <!-- Indicador de zoom -->
-        <div *ngIf="showZoomIndicator" class="zoom-indicator">
-          {{ isZoomed ? 'Haz clic para quitar zoom' : 'Haz clic para hacer zoom' }}
+        <!-- Indicador de zoom mejorado para móviles -->
+        <div *ngIf="showZoomIndicator" class="zoom-indicator" [class.mobile]="isMobile">
+          {{ isZoomed ? 'Toca para quitar zoom' : 'Toca para hacer zoom' }}
+          <span *ngIf="isMobile" class="zoom-hint">(Desliza para navegar)</span>
         </div>
 
-        <!-- Navegación dentro del modal -->
+        <!-- Navegación dentro del modal - mejorada para móviles -->
         <button class="modal-nav modal-prev" (click)="prevInModal()">‹</button>
         <button class="modal-nav modal-next" (click)="nextInModal()">›</button>
       </div>
@@ -90,11 +91,11 @@
         <div class="modal-actions">
           <button class="btn-buy">
             <span class="btn-icon">🛒</span>
-            Comprar Obra
+            <span class="btn-text">Comprar Obra</span>
           </button>
           <button class="btn-contact">
             <span class="btn-icon">💬</span>
-            Consultar Disponibilidad
+            <span class="btn-text">Consultar Disponibilidad</span>
           </button>
         </div>
       </div>

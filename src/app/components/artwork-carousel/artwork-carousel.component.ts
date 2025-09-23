@@ -24,9 +24,13 @@ export class ArtworkCarouselComponent implements OnInit {
   left1Index: number = 0;
   right1Index: number = 0;
   right2Index: number = 0;
+   isMobile: boolean = false;
 
   ngOnInit() {
     this.updateCarousel(0);
+     this.checkIfMobile();
+
+       window.addEventListener('resize', () => this.checkIfMobile());
   }
 
   ngOnChanges() {
@@ -139,5 +143,9 @@ export class ArtworkCarouselComponent implements OnInit {
     if (this.isModalOpen) {
       this.toggleZoom();
     }
+  }
+
+    checkIfMobile() {
+    this.isMobile = window.innerWidth <= 768;
   }
 }
