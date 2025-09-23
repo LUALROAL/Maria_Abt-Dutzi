@@ -1,46 +1,104 @@
 <!-- components/header/header.component.html -->
-<header class="bg-white shadow-md sticky top-0 z-50">
+<header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-accent/30 shadow-sm">
   <div class="container mx-auto px-4">
     <nav class="flex justify-between items-center py-4">
-      <a href="#" class="text-2xl font-bold text-purple-700">MALAVER</a>
+      <!-- Logo con el mismo estilo que el hero -->
+      <a href="#inicio" class="text-3xl font-light text-primary-dark">
+        <span class="font-serif italic">Malaver</span>
+      </a>
+
+      <!-- Navegación desktop -->
       <ul class="hidden md:flex space-x-8 items-center">
-        <li><a href="#inicio" class="text-gray-700 hover:text-purple-700">Inicio</a></li>
-        <li><a href="#tecnica" class="text-gray-700 hover:text-purple-700">Técnica</a></li>
-        <li><a href="#galeria" class="text-gray-700 hover:text-purple-700">Galería</a></li>
-        <li><a href="#contacto" class="text-gray-700 hover:text-purple-700">Contacto</a></li>
-        <!-- Botón de Login/Logout -->
         <li>
+          <a href="#inicio" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            Inicio
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#tecnica" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            Técnica
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#galeria" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            Galería
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#contacto" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+            Contacto
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </li>
+
+        <!-- Botón de Login/Logout -->
+        <li class="ml-4">
           <ng-container *ngIf="!isAuthenticated; else logoutTemplate">
-            <a routerLink="/admin/login" class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors">
-              Login
+            <a routerLink="/admin/login" class="btn px-4 py-2 text-sm font-light">
+              <span class="mr-2">🔐</span> Login
             </a>
           </ng-container>
           <ng-template #logoutTemplate>
-            <a (click)="logout()" class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors cursor-pointer">
-              Logout
+            <a (click)="logout()" class="btn btn-outline px-4 py-2 text-sm font-light cursor-pointer"
+               style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
+              <span class="mr-2">🚪</span> Logout
             </a>
           </ng-template>
         </li>
       </ul>
-      <button class="md:hidden" (click)="toggleMenu()">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      <!-- Botón menú móvil -->
+      <button class="md:hidden p-2 rounded-lg bg-accent/20 hover:bg-accent/30 transition-colors" (click)="toggleMenu()">
+        <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </nav>
-    <!-- Mobile menu -->
-    <div class="md:hidden" [class.hidden]="!isMenuOpen">
-      <ul class="py-4 space-y-2">
-        <li><a href="#inicio" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">Inicio</a></li>
-        <li><a href="#tecnica" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">Técnica</a></li>
-        <li><a href="#galeria" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">Galería</a></li>
-        <li><a href="#contacto" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">Contacto</a></li>
+
+    <!-- Menú móvil -->
+    <div class="md:hidden transition-all duration-300 overflow-hidden"
+         [class.max-h-0]="!isMenuOpen" [class.max-h-96]="isMenuOpen" [class.pb-4]="isMenuOpen">
+      <ul class="space-y-2">
         <li>
+          <a href="#inicio" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+             (click)="isMenuOpen = false">
+            Inicio
+          </a>
+        </li>
+        <li>
+          <a href="#tecnica" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+             (click)="isMenuOpen = false">
+            Técnica
+          </a>
+        </li>
+        <li>
+          <a href="#galeria" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+             (click)="isMenuOpen = false">
+            Galería
+          </a>
+        </li>
+        <li>
+          <a href="#contacto" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+             (click)="isMenuOpen = false">
+            Contacto
+          </a>
+        </li>
+        <li class="pt-2">
           <ng-container *ngIf="!isAuthenticated; else logoutMobileTemplate">
-            <a routerLink="/admin/login" class="block px-4 py-2 text-gray-700 hover:bg-purple-100">Login</a>
+            <a routerLink="/admin/login" class="block btn text-center"
+               (click)="isMenuOpen = false">
+              <span class="mr-2">🔐</span> Login
+            </a>
           </ng-container>
           <ng-template #logoutMobileTemplate>
-            <a (click)="logout()" class="block px-4 py-2 text-gray-700 hover:bg-purple-100 cursor-pointer">Logout</a>
+            <a (click)="logout(); isMenuOpen = false"
+               class="block btn btn-outline text-center cursor-pointer"
+               style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
+              <span class="mr-2">🚪</span> Logout
+            </a>
           </ng-template>
         </li>
       </ul>
