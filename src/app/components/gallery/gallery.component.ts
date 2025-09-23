@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
 export class GalleryComponent implements OnInit, OnDestroy {
   artworks: Artwork[] = [];
   filteredArtworks: Artwork[] = [];
+  isLoading: boolean = true;
 
   availableCategories: string[] = ['all', 'paisajismo', 'bodegones', 'retratos', 'animalismo', 'otros'];
   selectedCategory: string = 'all';
@@ -35,14 +36,17 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   loadArtworks(): void {
+    this.isLoading = true;
     this.subscription.add(
       this.artworkService.getAllArtworks().subscribe({
         next: (artworks: Artwork[]) => {
           this.artworks = artworks;
           this.applyFilters();
+          this.isLoading = false;
         },
         error: (error: any) => {
           console.error('Error loading artworks:', error);
+          this.isLoading = false;
         }
       })
     );
@@ -54,23 +58,23 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   getCategoryButtonClass(category: string): string {
-    const baseClasses = "px-6 py-3 rounded-full text-sm font-medium transition-all duration-300";
+    const baseClasses = "px-3 lg:px-6 py-2 lg:py-3 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap";
 
     if (this.selectedCategory === category) {
-      return `${baseClasses} bg-primary text-white shadow-lg transform hover:scale-105`;
+      return `${baseClasses} bg-primary text-white shadow-lg transform hover:scale-105 border border-primary`;
     } else {
-      return `${baseClasses} bg-white/80 backdrop-blur-sm text-primary-dark border border-accent hover:bg-primary/10 hover:border-primary/30`;
+      return `${baseClasses} bg-white/80 backdrop-blur-sm text-primary-dark border border-accent hover:bg-primary/10 hover:border-primary/30 hover:shadow-md`;
     }
   }
 
   getCategoryDisplayName(category: string): string {
     const names: { [key: string]: string } = {
-      'all': 'Todas las Obras',
+      'all': 'Todas',
       'paisajismo': 'Paisajismo',
       'bodegones': 'Bodegones',
       'retratos': 'Retratos',
       'animalismo': 'Animalismo',
-      'otros': 'Otras Obras'
+      'otros': 'Otras'
     };
     return names[category] || category;
   }
@@ -87,7 +91,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
     // Filtrar por término de búsqueda
     if (this.searchTerm.trim() !== '') {
-      const term = this.searchTerm.toLowerCase();
+      const term = this.searchTerm.toLowerCase().trim();
       filtered = filtered.filter(artwork =>
         artwork.titulo.toLowerCase().includes(term) ||
         (artwork.descripcion && artwork.descripcion.toLowerCase().includes(term)) ||
@@ -104,8 +108,9 @@ export class GalleryComponent implements OnInit, OnDestroy {
     this.applyFilters();
   }
 
-  // Mantener compatibilidad
-  searchObras(): void {
+  // Método para limpiar búsqueda individual
+  clearSearch(): void {
+    this.searchTerm = '';
     this.applyFilters();
   }
 }
