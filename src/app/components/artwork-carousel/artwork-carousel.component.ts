@@ -136,7 +136,6 @@ export class ArtworkCarouselComponent implements OnInit {
 
   onPanStart(event: MouseEvent | TouchEvent) {
     if (!this.isZoomed) return;
-    event.preventDefault();
     this.isPanning = true;
     const point = 'touches' in event ? event.touches[0] : event;
     this.startX = point.clientX - this.translateX;
@@ -154,7 +153,6 @@ export class ArtworkCarouselComponent implements OnInit {
 
   onPanEnd(event: MouseEvent | TouchEvent) {
     if (!this.isPanning) return;
-    event.preventDefault();
     this.isPanning = false;
   }
 
