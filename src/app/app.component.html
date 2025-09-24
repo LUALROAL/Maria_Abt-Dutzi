@@ -1,9 +1,2 @@
 <router-outlet></router-outlet>
-<h1>{{'title' | transloco:  {language: getLanguage() | transloco } }} </h1>
-
-@for (language of languages; track language.code) {
-  <button (click)="changeLang(language.code)">
-    {{ language.name | transloco }}
-  </button>
-}
 

@@ -55,7 +55,7 @@
     "title": "Sammlung von Werken",
     "subtitle": "Kunstgalerie",
     "description": "Entdecken Sie meine Sammlung von Werken, die mit traditionellen und zeitgenössischen Techniken erstellt wurden",
-    "results": "{count, plural, one {Werk gefunden} other {Werke gefunden}}",
+    "results": "Werke gefunden",
     "noResults": {
       "title": "Keine Werke gefunden, die Ihrer Suche entsprechen.",
       "button": "🔄 Filter löschen"

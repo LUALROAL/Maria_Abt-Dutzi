@@ -56,7 +56,7 @@
     "title": "Colección de Obras",
     "subtitle": "Galería de Arte",
     "description": "Explora mi colección de obras creadas con técnicas tradicionales y contemporáneas",
-    "results": "{count, plural, one {obra encontrada} other {obras encontradas}}",
+    "results": "obras encontradas",
     "noResults": {
       "title": "No se encontraron obras que coincidan con tu búsqueda.",
       "button": "🔄 Limpiar filtros"
