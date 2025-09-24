@@ -1,0 +1,182 @@
+{
+  "title": "Hola Mundo: {{ language}}",
+  "languages":{
+    "es": "Español",
+    "en": "Ingles",
+    "de": "Aleman"
+
+  },
+  "header": {
+    "gallery": "Galería",
+    "artist": "Artista",
+    "technique": "Técnica",
+    "contact": "Contacto",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "hero": {
+    "title": "Artista Pictórica Profesional",
+    "specialty": "Especialista en <span class=\"font-semibold text-primary-dark\">óleo sobre lienzo</span> y técnicas con <span class=\"font-semibold text-primary-dark\">pincel de pelo (tercio pelo)</span>",
+    "workDescription": "Mi trabajo explora la relación entre la <span class=\"italic\">luz, el color y la textura</span>, creando piezas que invitan a la reflexión y la contemplación.",
+    "exploreGallery": "Explorar Galería",
+    "knowTheArtist": "Conocer Artista",
+    "experience": "Años de Experiencia",
+    "worksCreated": "Obras Creadas",
+    "exhibitions": "Exposiciones"
+  },
+  "techniques": {
+    "title": "Especialidades Artísticas",
+    "subtitle": "Técnicas y Materiales",
+    "description": "Domino diversas técnicas que me permiten expresar mi visión artística con la máxima calidad y autenticidad.",
+    "card1": {
+      "title": "Óleo sobre lienzo",
+      "description": "Trabajo con óleos de alta calidad sobre lienzo de lino, permitiendo una mayor durabilidad y intensidad de color en cada obra."
+    },
+    "card2": {
+      "title": "Pincel de pelo (tercio pelo)",
+      "description": "Utilizo pinceles de pelo natural que permiten un mayor control de la pintura y la creación de texturas únicas y expresivas."
+    },
+    "card3": {
+      "title": "Técnicas mixtas",
+      "description": "Combino técnicas tradicionales con enfoques contemporáneos para crear obras únicas que trascienden los límites convencionales."
+    },
+    "quality": {
+      "title": "Compromiso con la calidad",
+      "description": "Cada material es cuidadosamente seleccionado para garantizar la permanencia y belleza de las obras a través del tiempo.",
+      "item1": "Pigmentos de la más alta calidad",
+      "item2": "Lienzos de lino premium",
+      "item3": "Barnices de protección especializados",
+      "experience": {
+        "title": "Años perfeccionando técnicas",
+        "description": "Experiencia que se refleja en cada pincelada"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Colección de Obras",
+    "subtitle": "Galería de Arte",
+    "description": "Explora mi colección de obras creadas con técnicas tradicionales y contemporáneas",
+    "results": "obras encontradas",
+    "noResults": {
+      "title": "No se encontraron obras que coincidan con tu búsqueda.",
+      "button": "🔄 Limpiar filtros"
+    },
+    "loading": "Cargando obras...",
+    "categories": {
+      "all": "Todas",
+      "paisajismo": "Paisajismo",
+      "bodegones": "Bodegones",
+      "retratos": "Retratos",
+      "animalismo": "Animalismo",
+      "otros": "Otras"
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Contacto Directo",
+      "subtitle": "Estudio Malaver",
+      "email": {
+        "title": "Email"
+      },
+      "phone": {
+        "title": "Teléfono"
+      },
+      "studio": {
+        "title": "Estudio",
+        "address": "Calle Arte 123, Madrid"
+      }
+    },
+    "social": {
+      "title": "Sígueme en Redes",
+      "subtitle": "Conectemos",
+      "instagram": {
+        "title": "Instagram"
+      },
+      "facebook": {
+        "title": "Facebook"
+      },
+      "twitter": {
+        "title": "Twitter"
+      }
+    },
+    "events": {
+      "title": "Próximos Eventos",
+      "subtitle": "Exposiciones",
+      "event1": {
+        "title": "Galería Moderna",
+        "date": "15 Nov - 30 Dic 2024",
+        "description": "Inauguración: 15 Nov, 19:00h"
+      },
+      "event2": {
+        "title": "Feria Internacional",
+        "date": "Enero 2025",
+        "description": "Stand A-15, Pabellón 3"
+      }
+    },
+    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Malaver</span>. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  },
+  "adminLogin": {
+    "title": "Iniciar Sesión",
+    "username": "Usuario",
+    "password": "Contraseña",
+    "login": "Ingresar",
+    "error": "Credenciales incorrectas"
+  },
+  "adminDashboard": {
+    "title": "Panel de Administración",
+    "logout": "Cerrar Sesión",
+    "addArtwork": "Agregar Nueva Obra",
+    "editArtwork": "Editar Obra",
+    "existingArtworks": "Obras Existentes",
+    "noArtworks": "No hay obras registradas. Agrega tu primera obra usando el formulario superior.",
+    "confirmDelete": "¿Estás seguro de que deseas eliminar esta obra?",
+    "form": {
+      "title": "Título *",
+      "measures": "Medidas *",
+      "technique": "Técnica *",
+      "style": "Estilo",
+      "genre": "Género *",
+      "category": "Categoría *",
+      "status": "Estado *",
+      "statusOptions": {
+        "new": "Nuevo",
+        "used": "Usado",
+        "restored": "Restaurado"
+      },
+      "price": "Precio *",
+      "currency": "Moneda *",
+      "year": "Año",
+      "sold": "Vendido *",
+      "soldOptions": {
+        "no": "No Vendido",
+        "yes": "Vendido"
+      },
+      "image": "URL de la Imagen *",
+      "description": "Descripción",
+      "cancel": "Cancelar",
+      "add": "Agregar Obra",
+      "update": "Actualizar Obra"
+    },
+    "table": {
+      "image": "Imagen",
+      "title": "Título",
+      "technique": "Técnica",
+      "price": "Precio",
+      "actions": "Acciones",
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "success": {
+      "add": "Obra agregada correctamente",
+      "update": "Obra actualizada correctamente",
+      "delete": "Obra eliminada correctamente"
+    },
+    "errors": {
+      "load": "Error al cargar las obras",
+      "save": "Error al guardar la obra",
+      "delete": "Error al eliminar la obra"
+    }
+  }
+}

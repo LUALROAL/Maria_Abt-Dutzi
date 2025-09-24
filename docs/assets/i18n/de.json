@@ -1,0 +1,181 @@
+{
+  "title": "Hallo Welt: {{ language }}",
+  "languages": {
+    "es": "Spanisch",
+    "en": "Englisch",
+    "de": "Deutsch"
+  },
+  "header": {
+    "gallery": "Galerie",
+    "artist": "Künstler",
+    "technique": "Technik",
+    "contact": "Kontakt",
+    "login": "Anmeldung",
+    "logout": "Abmeldung"
+  },
+  "hero": {
+    "title": "Professioneller Maler",
+    "specialty": "Spezialist für <span class=\"font-semibold text-primary-dark\">Öl auf Leinwand</span> und Techniken mit <span class=\"font-semibold text-primary-dark\">Haarpinsel (Samtdrittel)</span>",
+    "workDescription": "Meine Arbeit erforscht die Beziehung zwischen <span class=\"italic\">Licht, Farbe und Textur</span> und schafft Stücke, die zum Nachdenken und zur Kontemplation einladen.",
+    "exploreGallery": "Galerie erkunden",
+    "knowTheArtist": "Künstler kennenlernen",
+    "experience": "Jahre Erfahrung",
+    "worksCreated": "Geschaffene Werke",
+    "exhibitions": "Ausstellungen"
+  },
+  "techniques": {
+    "title": "Künstlerische Spezialitäten",
+    "subtitle": "Techniken und Materialien",
+    "description": "Ich beherrsche verschiedene Techniken, die es mir ermöglichen, meine künstlerische Vision mit höchster Qualität und Authentizität auszudrücken.",
+    "card1": {
+      "title": "Öl auf Leinwand",
+      "description": "Ich arbeite mit hochwertigen Ölen auf Leinenleinwand, was eine längere Haltbarkeit und Farbintensität in jedem Werk ermöglicht."
+    },
+    "card2": {
+      "title": "Haarpinsel (Samtdrittel)",
+      "description": "Ich verwende Naturhaarpinsel, die eine bessere Kontrolle über die Farbe und die Schaffung einzigartiger und ausdrucksstarker Texturen ermöglichen."
+    },
+    "card3": {
+      "title": "Mischtechniken",
+      "description": "Ich kombine traditionelle Techniken mit zeitgenössischen Ansätzen, um einzigartige Werke zu schaffen, die konventionelle Grenzen überschreiten."
+    },
+    "quality": {
+      "title": "Verpflichtung zur Qualität",
+      "description": "Jedes Material wird sorgfältig ausgewählt, um die Beständigkeit und Schönheit der Werke im Laufe der Zeit zu gewährleisten.",
+      "item1": "Pigmente von höchster Qualität",
+      "item2": "Premium-Leinenleinwände",
+      "item3": "Spezialisierte Schutzlacke",
+      "experience": {
+        "title": "Jahre der Perfektionierung von Techniken",
+        "description": "Erfahrung, die sich in jedem Pinselstrich widerspiegelt"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Sammlung von Werken",
+    "subtitle": "Kunstgalerie",
+    "description": "Entdecken Sie meine Sammlung von Werken, die mit traditionellen und zeitgenössischen Techniken erstellt wurden",
+    "results": "Werke gefunden",
+    "noResults": {
+      "title": "Keine Werke gefunden, die Ihrer Suche entsprechen.",
+      "button": "🔄 Filter löschen"
+    },
+    "loading": "Lade Werke...",
+    "categories": {
+      "all": "Alle",
+      "paisajismo": "Landschaftsbau",
+      "bodegones": "Stillleben",
+      "retratos": "Porträts",
+      "animalismo": "Animalismus",
+      "otros": "Andere"
+    }
+  },
+  "footer": {
+    "contact": {
+      "title": "Direkter Kontakt",
+      "subtitle": "Malaver Studio",
+      "email": {
+        "title": "Email"
+      },
+      "phone": {
+        "title": "Telefon"
+      },
+      "studio": {
+        "title": "Studio",
+        "address": "Kunststraße 123, Madrid"
+      }
+    },
+    "social": {
+      "title": "Folge mir in den sozialen Medien",
+      "subtitle": "Lass uns verbinden",
+      "instagram": {
+        "title": "Instagram"
+      },
+      "facebook": {
+        "title": "Facebook"
+      },
+      "twitter": {
+        "title": "Twitter"
+      }
+    },
+    "events": {
+      "title": "Kommende Veranstaltungen",
+      "subtitle": "Ausstellungen",
+      "event1": {
+        "title": "Moderne Galerie",
+        "date": "15. Nov. - 30. Dez. 2024",
+        "description": "Eröffnung: 15. Nov., 19:00 Uhr"
+      },
+      "event2": {
+        "title": "Internationale Messe",
+        "date": "Januar 2025",
+        "description": "Stand A-15, Pavillon 3"
+      }
+    },
+    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Malaver</span>. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz-Bestimmungen",
+    "terms": "Nutzungsbedingungen"
+  },
+  "adminLogin": {
+    "title": "Anmeldung",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "login": "Anmelden",
+    "error": "Falsche Anmeldeinformationen"
+  },
+  "adminDashboard": {
+    "title": "Admin-Panel",
+    "logout": "Abmelden",
+    "addArtwork": "Neues Kunstwerk hinzufügen",
+    "editArtwork": "Kunstwerk bearbeiten",
+    "existingArtworks": "Bestehende Kunstwerke",
+    "noArtworks": "Keine registrierten Kunstwerke. Fügen Sie Ihr erstes Kunstwerk über das obige Formular hinzu.",
+    "confirmDelete": "Sind Sie sicher, dass Sie dieses Kunstwerk löschen möchten?",
+    "form": {
+      "title": "Titel *",
+      "measures": "Maße *",
+      "technique": "Technik *",
+      "style": "Stil",
+      "genre": "Genre *",
+      "category": "Kategorie *",
+      "status": "Status *",
+      "statusOptions": {
+        "new": "Neu",
+        "used": "Gebraucht",
+        "restored": "Restauriert"
+      },
+      "price": "Preis *",
+      "currency": "Währung *",
+      "year": "Jahr",
+      "sold": "Verkauft *",
+      "soldOptions": {
+        "no": "Nicht verkauft",
+        "yes": "Verkauft"
+      },
+      "image": "Bild-URL *",
+      "description": "Beschreibung",
+      "cancel": "Abbrechen",
+      "add": "Kunstwerk hinzufügen",
+      "update": "Kunstwerk aktualisieren"
+    },
+    "table": {
+      "image": "Bild",
+      "title": "Titel",
+      "technique": "Technik",
+      "price": "Preis",
+      "actions": "Aktionen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen"
+    },
+    "success": {
+      "add": "Kunstwerk erfolgreich hinzugefügt",
+      "update": "Kunstwerk erfolgreich aktualisiert",
+      "delete": "Kunstwerk erfolgreich gelöscht"
+    },
+    "errors": {
+      "load": "Fehler beim Laden der Kunstwerke",
+      "save": "Fehler beim Speichern des Kunstwerks",
+      "delete": "Fehler beim Löschen des Kunstwerks"
+    }
+  }
+}
