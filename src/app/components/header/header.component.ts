@@ -1,6 +1,8 @@
 // components/header/header.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslocoModule } from '@jsverse/transloco';
+import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, LanguageSwitcherComponent, TranslocoModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

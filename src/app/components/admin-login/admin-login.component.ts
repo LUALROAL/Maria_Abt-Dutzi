@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TranslocoModule],
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.scss']
 })
@@ -17,13 +18,13 @@ export class AdminLoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private translocoService: TranslocoService) {}
 
   onSubmit(): void {
     if (this.authService.login(this.username, this.password)) {
       this.router.navigate(['/admin/dashboard']);
     } else {
-      this.errorMessage = 'Credenciales incorrectas';
+      this.errorMessage = this.translocoService.translate('adminLogin.error');
     }
   }
 }

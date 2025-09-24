@@ -6,11 +6,12 @@ import { ArtworkService } from '../../services/artwork.service';
 import { Artwork } from '../../models/artwork.model';
 import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule, ArtworkCarouselComponent, FormsModule],
+  imports: [CommonModule, ArtworkCarouselComponent, FormsModule, TranslocoModule],
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss']
 })
@@ -25,7 +26,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription = new Subscription();
 
-  constructor(private artworkService: ArtworkService) {}
+  constructor(private artworkService: ArtworkService, private translocoService: TranslocoService) {}
 
   ngOnInit(): void {
     this.loadArtworks();
@@ -68,15 +69,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   getCategoryDisplayName(category: string): string {
-    const names: { [key: string]: string } = {
-      'all': 'Todas',
-      'paisajismo': 'Paisajismo',
-      'bodegones': 'Bodegones',
-      'retratos': 'Retratos',
-      'animalismo': 'Animalismo',
-      'otros': 'Otras'
-    };
-    return names[category] || category;
+    return this.translocoService.translate(`gallery.categories.${category}`);
   }
 
   applyFilters(): void {

@@ -12,41 +12,45 @@
       <ul class="hidden md:flex space-x-8 items-center">
           <li>
           <a href="#galeria" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
-            Galería
+            {{ 'header.gallery' | transloco }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
         <li>
           <a href="#inicio" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
-            Artista
+            {{ 'header.artist' | transloco }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
         <li>
           <a href="#tecnica" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
-            Técnica
+            {{ 'header.technique' | transloco }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
 
         <li>
           <a href="#contacto" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
-            Contacto
+            {{ 'header.contact' | transloco }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
+        </li>
+
+        <li class="ml-4">
+          <app-language-switcher></app-language-switcher>
         </li>
 
         <!-- Botón de Login/Logout -->
         <li class="ml-4">
           <ng-container *ngIf="!isAuthenticated; else logoutTemplate">
             <a routerLink="/admin/login" class="btn px-4 py-2 text-sm font-light">
-              <span class="mr-2">🔐</span> Login
+              <span class="mr-2">🔐</span> {{ 'header.login' | transloco }}
             </a>
           </ng-container>
           <ng-template #logoutTemplate>
             <a (click)="logout()" class="btn btn-outline px-4 py-2 text-sm font-light cursor-pointer"
                style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
-              <span class="mr-2">🚪</span> Logout
+              <span class="mr-2">🚪</span> {{ 'header.logout' | transloco }}
             </a>
           </ng-template>
         </li>
@@ -67,39 +71,42 @@
         <li>
           <a href="#inicio" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
              (click)="isMenuOpen = false">
-            Inicio
+            {{ 'header.artist' | transloco }}
           </a>
         </li>
         <li>
           <a href="#tecnica" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
              (click)="isMenuOpen = false">
-            Técnica
+            {{ 'header.technique' | transloco }}
           </a>
         </li>
         <li>
           <a href="#galeria" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
              (click)="isMenuOpen = false">
-            Galería
+            {{ 'header.gallery' | transloco }}
           </a>
         </li>
         <li>
           <a href="#contacto" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
              (click)="isMenuOpen = false">
-            Contacto
+            {{ 'header.contact' | transloco }}
           </a>
+        </li>
+        <li class="pt-2">
+          <app-language-switcher></app-language-switcher>
         </li>
         <li class="pt-2">
           <ng-container *ngIf="!isAuthenticated; else logoutMobileTemplate">
             <a routerLink="/admin/login" class="block btn text-center "
                (click)="isMenuOpen = false">
-              <span class="mr-2">🔐</span> Login
+              <span class="mr-2">🔐</span> {{ 'header.login' | transloco }}
             </a>
           </ng-container>
           <ng-template #logoutMobileTemplate>
             <a (click)="logout(); isMenuOpen = false"
                class="block btn btn-outline text-center cursor-pointer"
                style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
-              <span class="mr-2">🚪</span> Logout
+              <span class="mr-2">🚪</span> {{ 'header.logout' | transloco }}
             </a>
           </ng-template>
         </li>

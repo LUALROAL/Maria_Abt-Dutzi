@@ -6,11 +6,12 @@ import { ArtworkService } from '../../services/artwork.service';
 import { AuthService } from '../../services/auth.service';
 import { Artwork } from '../../models/artwork.model';
 import { Subscription } from 'rxjs';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TranslocoModule],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
@@ -39,7 +40,8 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
 
   constructor(
     private artworkService: ArtworkService,
-    public authService: AuthService
+    public authService: AuthService,
+    private translocoService: TranslocoService
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +60,7 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
         },
         error: (error: any) => {
           console.error('Error loading artworks:', error);
-          this.errorMessage = 'Error al cargar las obras';
+          this.errorMessage = this.translocoService.translate('adminDashboard.errors.load');
           setTimeout(() => {
             this.errorMessage = '';
           }, 3000);
@@ -72,11 +74,11 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
       if (this.editingArtwork) {
         // Modo edición
         await this.artworkService.updateArtwork({...this.newArtwork});
-        this.successMessage = 'Obra actualizada correctamente';
+        this.successMessage = this.translocoService.translate('adminDashboard.success.update');
       } else {
         // Modo creación
         await this.artworkService.addArtwork({...this.newArtwork});
-        this.successMessage = 'Obra agregada correctamente';
+        this.successMessage = this.translocoService.translate('adminDashboard.success.add');
       }
 
       this.resetForm();
@@ -87,7 +89,7 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
       }, 3000);
     } catch (error) {
       console.error('Error saving artwork:', error);
-      this.errorMessage = 'Error al guardar la obra';
+      this.errorMessage = this.translocoService.translate('adminDashboard.errors.save');
       setTimeout(() => {
         this.errorMessage = '';
       }, 3000);
@@ -100,16 +102,16 @@ export class AdminDashboardComponent implements OnInit, OnDestroy {
   }
 
   async deleteArtwork(id: string): Promise<void> {
-    if (confirm('¿Estás seguro de que deseas eliminar esta obra?')) {
+    if (confirm(this.translocoService.translate('adminDashboard.confirmDelete'))) {
       try {
         await this.artworkService.deleteArtwork(id);
-        this.successMessage = 'Obra eliminada correctamente';
+        this.successMessage = this.translocoService.translate('adminDashboard.success.delete');
         setTimeout(() => {
           this.successMessage = '';
         }, 3000);
       } catch (error) {
         console.error('Error deleting artwork:', error);
-        this.errorMessage = 'Error al eliminar la obra';
+        this.errorMessage = this.translocoService.translate('adminDashboard.errors.delete');
         setTimeout(() => {
           this.errorMessage = '';
         }, 3000);

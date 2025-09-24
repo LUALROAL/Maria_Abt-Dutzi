@@ -1,0 +1,27 @@
+{
+  "title": "Hello World: {{ language }}",
+  "languages": {
+    "es": "Spanish",
+    "en": "English",
+    "de": "German"
+  },
+  "header": {
+
+    "gallery": "Gallery",
+    "artist": "Artist",
+    "technique": "Technique",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "hero": {
+    "title": "Professional Painter",
+    "specialty": "Specialist in <span class=\"font-semibold text-primary-dark\">oil on canvas</span> and techniques with <span class=\"font-semibold text-primary-dark\">hair brush (velvet third)</span>",
+    "workDescription": "My work explores the relationship between <span class=\"italic\">light, color and texture</span>, creating pieces that invite reflection and contemplation.",
+    "exploreGallery": "Explore Gallery",
+    "knowTheArtist": "Know the Artist",
+    "experience": "Years of Experience",
+    "worksCreated": "Works Created",
+    "exhibitions": "Exhibitions"
+  }
+}
