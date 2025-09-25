@@ -16,7 +16,7 @@
   "hero": {
     "title": "María Abt-Dutzi (Malaver)",
     "specialty": "Specialist in <span class=\"font-semibold text-primary-dark\">velvet painting</span> using traditional Colombian techniques",
-    "workDescription": "My figurative works are created with a unique <span class=\"italic\">dotting technique on velvet</span>, where colors do not blend, resulting in a distinctive visual effect.",
+    "workDescription": "My figurative works are created with a unique <span class=\"italic\">pointillism on velvet</span> technique, where the colors do not mix, creating a distinct and contemplative visual effect.",
     "exploreGallery": "Explore Gallery",
     "knowTheArtist": "Meet the Artist",
     "experience": "Decades of Experience",
@@ -29,7 +29,7 @@
     "description": "My father and mentor Guillermo Malaver taught me oil and acrylic painting at an early age, but above all the traditional Colombian velvet painting technique.",
     "card1": {
       "title": "Velvet Painting",
-      "description": "A traditional Colombian technique, little known in Europe, created exclusively with dots on velvet to prevent the colors from blending."
+      "description": "A traditional Colombian technique, little known in Europe, created using a pointillism technique on velvet, which prevents the colors from mixing."
     },
     "card2": {
       "title": "Oil and Acrylic",
