@@ -204,5 +204,40 @@
     "artworkSold": "Werk Verkauft",
     "artworkSoldDescription": "Dieses einzigartige Stück hat bereits sein neues Zuhause gefunden.",
     "buyArtwork": "Werk Kaufen"
+  },
+  "bio": {
+    "title": "Samtmalerei aus Kolumbien",
+    "date": "März 2023",
+    "location": "Leben der Malerin María Abt-Dutzi, Bad Wörishofen",
+    "paragraphs": {
+      "p1": "Am 29. Juli 1952 wurde ich in Bogotá, der Hauptstadt Kolumbiens, als zweite Tochter des akademischen Malers Guillermo Malaver und seiner Ehefrau Margarita geboren.",
+      "p2": "Als ich etwa 11 Jahre alt war, entdeckte mein Vater, dass ich sein Talent geerbt hatte. Von diesem Moment an unterrichtete er mich regelmäßig in Öl- und Acrylmalerei.",
+      "p3": "In meiner Ausbildung legte er großen Wert darauf, mir vor allem unsere traditionelle kolumbianische Maltechnik beizubringen, nämlich die Malerei auf Samt.",
+      "p4": "Die Motive meiner gegenständlichen Werke werden in dieser Maltechnik ausschließlich aus Punkten und nicht mit Pinselstrichen realisiert, da sich die Farben sonst vermischen würden.",
+      "p5": "Dieser südamerikanische Malstil ist in Europa praktisch unbekannt und unterscheidet sich in seiner Wirkung auf den Betrachter von den üblichen Bildern, die ausschließlich auf weißer Leinwand gemalt sind.",
+      "p6": "Aus Dankbarkeit gegenüber meinem Vater und Mentor signiere ich bis heute alle meine Werke mit dem Künstlernamen 'Malaver'.",
+      "p7": "Ich begann zunächst ein Studium der Psychopädagogik, aber nach einem Semester wurde mir klar, dass meine wahre Leidenschaft die Malerei war.",
+      "p8": "Mit 26 Jahren begann ich mich als freischaffende Malerin zu betätigen und während dieser Zeit realisierte ich mehrere Ausstellungen in meinem Heimatland, darunter in:",
+      "p9": "1992 wanderte ich aus Liebe nach Deutschland aus. Kurz nach Beginn meines neuen Lebens in Deutschland verstarb mein erster Ehemann an einer schweren Krankheit.",
+      "p10": "1994 lernte ich meinen zweiten Ehemann kennen, der mich ermutigte, meine künstlerischen Aktivitäten wieder aufzunehmen.",
+      "p11": "In den letzten Jahren verkaufte ich meine Samtgemälde hauptsächlich an Privatpersonen und über die Internetgalerie 'Artquid' sowie später auch in Ausstellungen in folgenden Galerien:"
+    },
+    "exhibitionsColombia": {
+      "title": "Ausstellungen in Kolumbien",
+      "item1": "Museo de Arte Moderno, Bogotá",
+      "item2": "Museo de la Independencia, Casa del Florero, Bogotá",
+      "item3": "Museo de Arte Colonial, Bogotá",
+      "item4": "Museo La Tertulia, Cali",
+      "item5": "MULI Museo Libre de Arte Público de Cali, Cali"
+    },
+    "exhibitionsEurope": {
+      "title": "Ausstellungen in Europa",
+      "item1": "Schloss Neuburg an der Kamel",
+      "item2": "Galerie 'Luer', Bad Wörishofen",
+      "item3": "Galerie im Kurhaus, Bad Wörishofen",
+      "item4": "Galerie 'Art Gladys', Golf Club Bad Ragaz (Schweiz)",
+      "item5": "Galerie 'Kunsthalle Art-Schöch', Stein am Rhein (Schweiz)"
+    },
+    "signature": "María Abt-Dutzi (Malaver)"
   }
 }

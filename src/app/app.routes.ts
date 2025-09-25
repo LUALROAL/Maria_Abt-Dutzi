@@ -4,6 +4,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { ArtistBioComponent } from './components/artist-bio/artist-bio.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,5 +14,7 @@ export const routes: Routes = [
     component: AdminDashboardComponent,
     canActivate: [AuthGuard]
   },
+  { path: 'bio', component: ArtistBioComponent },
+
   { path: '**', redirectTo: '' }
 ];

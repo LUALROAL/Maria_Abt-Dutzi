@@ -204,5 +204,40 @@
     "artworkSold": "Obra Vendida",
     "artworkSoldDescription": "Esta pieza única ya encontró su nuevo hogar.",
     "buyArtwork": "Comprar Obra"
+  },
+    "bio": {
+      "title": "Pintura en terciopelo de Colombia",
+      "date": "Marzo 2023",
+      "location": "Vida de la pintora María Abt-Dutzi, Bad Wörishofen",
+      "paragraphs": {
+        "p1": "El 29 de julio de 1952 nací en Bogotá, la capital de Colombia, como la segunda hija del pintor académico Guillermo Malaver y su esposa Margarita.",
+        "p2": "Cuando tenía unos 11 años, mi padre descubrió que había heredado su talento. A partir de ese momento, me enseñó regularmente pintura al óleo y acrílico.",
+        "p3": "En mi formación puso gran énfasis en enseñarme principalmente nuestra técnica tradicional colombiana de pintura, es decir, la pintura sobre terciopelo.",
+        "p4": "Los motivos de mis obras figurativas se realizan en esta técnica de pintura únicamente a base de puntos y no con pinceladas, ya que de lo contrario los colores se mezclarían.",
+        "p5": "Este estilo sudamericano de pintura es prácticamente desconocido en Europa y se distingue en su efecto sobre el espectador de los cuadros habituales, que están pintados exclusivamente sobre lienzo blanco.",
+        "p6": "Como agradecimiento hacia mi padre y mentor, firmo hasta hoy todas mis obras con el nombre artístico 'Malaver'.",
+        "p7": "Comencé primero estudios de psicopedagogía, pero después de un semestre me di cuenta de que mi verdadera pasión era la pintura.",
+        "p8": "A los 26 años empecé a dedicarme como pintora independiente y durante ese tiempo realicé varias exposiciones en mi país natal, entre ellas en:",
+        "p9": "En 1992 emigré a Alemania por amor. Poco después de comenzar mi nueva vida en Alemania, mi primer esposo falleció a causa de una grave enfermedad.",
+        "p10": "En 1994 conocí a mi segundo esposo, quien me animó nuevamente a retomar mis actividades artísticas.",
+        "p11": "En los últimos años vendí mis pinturas en terciopelo principalmente a particulares y a través de la galería de internet 'Artquid', y posteriormente también en exposiciones en las siguientes galerías:"
+      },
+      "exhibitionsColombia": {
+        "title": "Exposiciones en Colombia",
+        "item1": "Museo de Arte Moderno, Bogotá",
+        "item2": "Museo de la Independencia, Casa del Florero, Bogotá",
+        "item3": "Museo de Arte Colonial, Bogotá",
+        "item4": "Museo La Tertulia, Cali",
+        "item5": "MULI Museo Libre de Arte Público de Cali, Cali"
+      },
+      "exhibitionsEurope": {
+        "title": "Exposiciones en Europa",
+        "item1": "Castillo Neuburg an der Kamel",
+        "item2": "Galería 'Luer', Bad Wörishofen",
+        "item3": "Galería en el Kurhaus, Bad Wörishofen",
+        "item4": "Galería 'Art Gladys', Club de Golf Bad Ragaz (Suiza)",
+        "item5": "Galería 'Kunsthalle Art-Schöch', Stein am Rhein (Suiza)"
+      },
+      "signature": "María Abt-Dutzi (Malaver)"
+    }
   }
-}

@@ -1,0 +1,117 @@
+<app-header></app-header>
+<!-- components/artist-bio/artist-bio.component.html -->
+
+<section id="sobre-mi" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-artistic-pattern py-16">
+  <!-- Fondos decorativos -->
+  <div class="absolute inset-0 bg-gradient-to-br from-background via-white to-accent/20"></div>
+  <div class="absolute top-10 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+  <div class="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"
+    style="animation-delay: 2s;"></div>
+
+  <div class="container relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Columna de imagen -->
+      <div class="relative animate-fade-in-up">
+        <div class="relative group">
+          <!-- Marco de la imagen -->
+          <div class="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-2xl border border-accent/50">
+            <div class="aspect-[3/4] bg-gradient-to-br from-primary/5 to-accent/10 rounded-lg overflow-hidden">
+              <!-- Imagen del artista -->
+              <div class="w-full h-full flex items-center justify-center p-2">
+                <div class="relative w-full h-full rounded-lg overflow-hidden">
+                  <img src="https://res.cloudinary.com/dvdscvipo/image/upload/v1758581745/Scannen0002_fa4n0x.jpg"
+                    alt="María Abt-Dutzi - Artista pictórica"
+                    class="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105">
+                  <!-- Overlay sutil al hover -->
+                  <div class="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/5"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elementos decorativos -->
+          <div class="absolute -top-3 -right-3 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
+          <div class="absolute -bottom-3 -left-3 w-24 h-24 bg-accent/15 rounded-full blur-xl"></div>
+        </div>
+      </div>
+
+      <!-- Columna de texto -->
+      <div class="text-center lg:text-left animate-fade-in-up" style="animation-delay: 0.3s;">
+        <div class="mb-6">
+          <span class="inline-block px-4 py-2 bg-accent/30 text-primary-dark rounded-full text-sm font-medium mb-4">
+            {{ 'bio.title' | transloco }}
+          </span>
+          <span class="block text-lg text-text-light">{{ 'bio.date' | transloco }}</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-light text-primary-dark mb-6 leading-tight">
+          {{ 'bio.location' | transloco }}
+        </h2>
+
+        <div class="space-y-6 text-text leading-relaxed">
+          <p>{{ 'bio.paragraphs.p1' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p2' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p3' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p4' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p5' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p6' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p7' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p8' | transloco }}</p>
+
+          <!-- Lista de exposiciones en Colombia -->
+          <div class="mt-8">
+            <h3 class="text-xl font-light text-primary-dark mb-4">{{ 'bio.exhibitionsColombia.title' | transloco }}</h3>
+            <ul class="space-y-2 pl-6">
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsColombia.item1' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsColombia.item2' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsColombia.item3' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsColombia.item4' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsColombia.item5' | transloco }}
+              </li>
+            </ul>
+          </div>
+
+          <p>{{ 'bio.paragraphs.p9' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p10' | transloco }}</p>
+          <p>{{ 'bio.paragraphs.p11' | transloco }}</p>
+
+          <!-- Lista de exposiciones en Europa -->
+          <div class="mt-8">
+            <h3 class="text-xl font-light text-primary-dark mb-4">{{ 'bio.exhibitionsEurope.title' | transloco }}</h3>
+            <ul class="space-y-2 pl-6">
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsEurope.item1' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsEurope.item2' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsEurope.item3' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsEurope.item4' | transloco }}
+              </li>
+              <li class="relative before:content-['•'] before:absolute before:-left-4 before:text-accent">
+                {{ 'bio.exhibitionsEurope.item5' | transloco }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Firma -->
+        <div class="mt-12 pt-6 border-t border-accent/30">
+          <p class="text-lg font-serif italic text-primary-dark">{{ 'bio.signature' | transloco }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

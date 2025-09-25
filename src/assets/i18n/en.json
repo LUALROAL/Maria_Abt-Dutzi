@@ -204,5 +204,40 @@
     "artworkSold": "Artwork Sold",
     "artworkSoldDescription": "This unique piece has already found its new home.",
     "buyArtwork": "Buy Artwork"
+  },
+  "bio": {
+    "title": "Velvet Painting from Colombia",
+    "date": "March 2023",
+    "location": "Life of the painter María Abt-Dutzi, Bad Wörishofen",
+    "paragraphs": {
+      "p1": "On July 29, 1952, I was born in Bogotá, the capital of Colombia, as the second daughter of academic painter Guillermo Malaver and his wife Margarita.",
+      "p2": "When I was about 11 years old, my father discovered that I had inherited his talent. From that moment on, he regularly taught me oil and acrylic painting.",
+      "p3": "In my training, he placed great emphasis on teaching me primarily our traditional Colombian painting technique, namely painting on velvet.",
+      "p4": "The motifs of my figurative works are created in this painting technique solely through dots and not with brushstrokes, as the colors would otherwise mix.",
+      "p5": "This South American painting style is practically unknown in Europe and differs in its effect on the viewer from the usual paintings that are painted exclusively on white canvas.",
+      "p6": "As a gratitude to my father and mentor, I sign all my works to this day with the artistic name 'Malaver'.",
+      "p7": "I first began studying psychopedagogy, but after one semester I realized that my true passion was painting.",
+      "p8": "At the age of 26, I began working as an independent painter and during that time I held several exhibitions in my native country, including at:",
+      "p9": "In 1992, I emigrated to Germany for love. Shortly after starting my new life in Germany, my first husband passed away from a serious illness.",
+      "p10": "In 1994, I met my second husband, who encouraged me to resume my artistic activities.",
+      "p11": "In recent years, I have sold my velvet paintings mainly to private individuals and through the online gallery 'Artquid', and later also in exhibitions at the following galleries:"
+    },
+    "exhibitionsColombia": {
+      "title": "Exhibitions in Colombia",
+      "item1": "Museum of Modern Art, Bogotá",
+      "item2": "Museum of Independence, Casa del Florero, Bogotá",
+      "item3": "Museum of Colonial Art, Bogotá",
+      "item4": "Museum La Tertulia, Cali",
+      "item5": "MULI Free Museum of Public Art of Cali, Cali"
+    },
+    "exhibitionsEurope": {
+      "title": "Exhibitions in Europe",
+      "item1": "Neuburg Castle an der Kamel",
+      "item2": "Galerie 'Luer', Bad Wörishofen",
+      "item3": "Gallery in the Kurhaus, Bad Wörishofen",
+      "item4": "Gallery 'Art Gladys', Bad Ragaz Golf Club (Switzerland)",
+      "item5": "Gallery 'Kunsthalle Art-Schöch', Stein am Rhein (Switzerland)"
+    },
+    "signature": "María Abt-Dutzi (Malaver)"
   }
 }
