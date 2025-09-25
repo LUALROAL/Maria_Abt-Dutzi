@@ -6,7 +6,7 @@
     "de": "German"
   },
   "header": {
-   "agregar": "Add",
+    "agregar": "Add",
     "gallery": "Gallery",
     "artist": "Artist",
     "technique": "Technique",
@@ -188,5 +188,21 @@
       "save": "Error saving artwork",
       "delete": "Error deleting artwork"
     }
+  },
+  "artworkCarousel": {
+    "sold": "SOLD",
+    "zoomOut": "Tap to zoom out",
+    "zoomIn": "Tap to zoom in",
+    "panHint": "(Swipe to navigate)",
+    "dimensions": "Dimensions:",
+    "materials": "Materials:",
+    "year": "Year:",
+    "status": "Status:",
+    "statusSold": "Sold",
+    "statusAvailable": "Available",
+    "price": "Price:",
+    "artworkSold": "Artwork Sold",
+    "artworkSoldDescription": "This unique piece has already found its new home.",
+    "buyArtwork": "Buy Artwork"
   }
 }

@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Artwork } from '../../models/artwork.model';
 import { Subscription } from 'rxjs';
 import { ModalStateService } from '../../services/modal-state.service';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-artwork-carousel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoModule],
   templateUrl: './artwork-carousel.component.html',
   styleUrls: ['./artwork-carousel.component.scss']
 })
@@ -39,7 +40,10 @@ export class ArtworkCarouselComponent implements OnInit {
 
     private modalStateSubscription: Subscription;
 
-  constructor(private modalStateService: ModalStateService) {
+  constructor(
+    private modalStateService: ModalStateService,
+    private translocoService: TranslocoService
+    ) {
     // Suscribirse a cambios en el estado del modal
     this.modalStateSubscription = this.modalStateService.isModalOpen$.subscribe(
       isOpen => {

@@ -188,5 +188,21 @@
       "save": "Error al guardar la obra",
       "delete": "Error al eliminar la obra"
     }
+  },
+  "artworkCarousel": {
+    "sold": "VENDIDO",
+    "zoomOut": "Toca para quitar zoom",
+    "zoomIn": "Toca para hacer zoom",
+    "panHint": "(Desliza para navegar)",
+    "dimensions": "Dimensiones:",
+    "materials": "Materiales:",
+    "year": "Año:",
+    "status": "Estado:",
+    "statusSold": "Vendido",
+    "statusAvailable": "Disponible",
+    "price": "Precio:",
+    "artworkSold": "Obra Vendida",
+    "artworkSoldDescription": "Esta pieza única ya encontró su nuevo hogar.",
+    "buyArtwork": "Comprar Obra"
   }
 }
