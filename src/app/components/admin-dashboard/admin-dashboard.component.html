@@ -2,11 +2,9 @@
 <div class="min-h-screen bg-gray-100 p-6">
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-center mb-8">
-      <h1 class="text-3xl font-bold text-gray-800" *transloco="'adminDashboard.title'"></h1>
-      <button
-        (click)="authService.logout()"
-        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors"
-      >
+      <h1 class="text-3xl font-bold text-gray-800">{{ 'adminDashboard.title' | transloco }}</h1>
+      <button (click)="authService.logout()"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">
         {{ 'adminDashboard.logout' | transloco }}
       </button>
     </div>
@@ -28,67 +26,35 @@
         <!-- Columna izquierda -->
         <div class="space-y-4">
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.title'"></label>
-            <input
-              type="text"
-              [(ngModel)]="newArtwork.titulo"
-              name="titulo"
-              required
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.title' | transloco}}</label>
+            <input type="text" [(ngModel)]="newArtwork.titulo" name="titulo" required class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.measures'"></label>
-            <input
-              type="text"
-              [(ngModel)]="newArtwork.medidas"
-              name="medidas"
-              required
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.measures' | transloco}}</label>
+            <input type="text" [(ngModel)]="newArtwork.medidas" name="medidas" required
+              class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.technique'"></label>
-            <input
-              type="text"
-              [(ngModel)]="newArtwork.tecnica"
-              name="tecnica"
-              required
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.technique' | transloco}}</label>
+            <input type="text" [(ngModel)]="newArtwork.tecnica" name="tecnica" required
+              class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.style'"></label>
-            <input
-              type="text"
-              [(ngModel)]="newArtwork.estilo"
-              name="estilo"
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.style' | transloco}}</label>
+            <input type="text" [(ngModel)]="newArtwork.estilo" name="estilo" class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.genre'"></label>
-            <input
-              type="text"
-              [(ngModel)]="newArtwork.genero"
-              name="genero"
-              required
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.genre' | transloco}}</label>
+            <input type="text" [(ngModel)]="newArtwork.genero" name="genero" required class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.category'"></label>
-            <select
-              [(ngModel)]="newArtwork.categoria"
-              name="categoria"
-              required
-              class="w-full p-2 border rounded"
-            >
-              <option value="paisajismo" *transloco="'gallery.categories.paisajismo'"></option>
-              <option value="bodegones" *transloco="'gallery.categories.bodegones'"></option>
-              <option value="retratos" *transloco="'gallery.categories.retratos'"></option>
-              <option value="animalismo" *transloco="'gallery.categories.animalismo'"></option>
-              <option value="otros" *transloco="'gallery.categories.otros'"></option>
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.category' | transloco}}</label>
+            <select [(ngModel)]="newArtwork.categoria" name="categoria" required class="w-full p-2 border rounded">
+              <option value="paisajismo">{{'gallery.categories.paisajismo' | transloco}}</option>
+              <option value="bodegones">{{'gallery.categories.bodegones' | transloco}}</option>
+              <option value="retratos">{{'gallery.categories.retratos' | transloco}}</option>
+              <option value="animalismo">{{'gallery.categories.animalismo' | transloco}}</option>
+              <option value="otros">{{'gallery.categories.otros' | transloco}}</option>
             </select>
           </div>
         </div>
@@ -96,101 +62,58 @@
         <!-- Columna derecha -->
         <div class="space-y-4">
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.status'"></label>
-            <select
-              [(ngModel)]="newArtwork.estado"
-              name="estado"
-              required
-              class="w-full p-2 border rounded"
-            >
-              <option value="Nuevo" *transloco="'adminDashboard.form.statusOptions.new'"></option>
-              <option value="Usado" *transloco="'adminDashboard.form.statusOptions.used'"></option>
-              <option value="Restaurado" *transloco="'adminDashboard.form.statusOptions.restored'"></option>
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.status' | transloco}}</label>
+            <select [(ngModel)]="newArtwork.estado" name="estado" required class="w-full p-2 border rounded">
+              <option value="Nuevo">{{'adminDashboard.form.statusOptions.new' | transloco}}</option>
+              <option value="Usado">{{'adminDashboard.form.statusOptions.used' | transloco}}</option>
+              <option value="Restaurado">{{'adminDashboard.form.statusOptions.restored' | transloco}}</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.price'"></label>
-            <input
-              type="number"
-              [(ngModel)]="newArtwork.precio"
-              name="precio"
-              required
-              min="0"
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.price' | transloco}}</label>
+            <input type="number" [(ngModel)]="newArtwork.precio" name="precio" required min="0"
+              class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.currency'"></label>
-            <select
-              [(ngModel)]="newArtwork.moneda"
-              name="moneda"
-              required
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.currency' | transloco}}</label>
+            <select [(ngModel)]="newArtwork.moneda" name="moneda" required class="w-full p-2 border rounded">
               <option value="EUR">EUR</option>
               <option value="USD">USD</option>
               <option value="COP">COP</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.year'"></label>
-            <input
-              type="number"
-              [(ngModel)]="newArtwork.anio"
-              name="anio"
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.year' | transloco}}</label>
+            <input type="number" [(ngModel)]="newArtwork.anio" name="anio" class="w-full p-2 border rounded">
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.sold'"></label>
-            <select
-              [(ngModel)]="newArtwork.vendido"
-              name="vendido"
-              required
-              class="w-full p-2 border rounded"
-            >
-              <option [ngValue]="false" *transloco="'adminDashboard.form.soldOptions.no'"></option>
-              <option [ngValue]="true" *transloco="'adminDashboard.form.soldOptions.yes'"></option>
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.sold' | transloco}}</label>
+            <select [(ngModel)]="newArtwork.vendido" name="vendido" required class="w-full p-2 border rounded">
+              <option [ngValue]="false">{{'adminDashboard.form.soldOptions.no' | transloco}}</option>
+              <option [ngValue]="true">{{'adminDashboard.form.soldOptions.yes' | transloco}}</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.image'"></label>
-            <input
-              type="text"
-              [(ngModel)]="newArtwork.imagen"
-              name="imagen"
-              required
-              class="w-full p-2 border rounded"
-            >
+            <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.image' | transloco}}</label>
+            <input type="text" [(ngModel)]="newArtwork.imagen" name="imagen" required class="w-full p-2 border rounded">
           </div>
         </div>
 
         <!-- Descripción (ancho completo) -->
         <div class="md:col-span-2">
-          <label class="block text-sm font-medium mb-1" *transloco="'adminDashboard.form.description'"></label>
-          <textarea
-            [(ngModel)]="newArtwork.descripcion"
-            name="descripcion"
-            rows="3"
-            class="w-full p-2 border rounded"
-          ></textarea>
+          <label class="block text-sm font-medium mb-1">{{'adminDashboard.form.description' | transloco}}</label>
+          <textarea [(ngModel)]="newArtwork.descripcion" name="descripcion" rows="3"
+            class="w-full p-2 border rounded"></textarea>
         </div>
 
         <!-- Botones -->
         <div class="md:col-span-2 flex justify-end space-x-4 mt-4">
-          <button
-            *ngIf="editingArtwork"
-            type="button"
-            (click)="cancelEdit()"
-            class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors"
-          >
+          <button *ngIf="editingArtwork" type="button" (click)="cancelEdit()"
+            class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors">
             {{ 'adminDashboard.form.cancel' | transloco }}
           </button>
-          <button
-            type="submit"
-            [disabled]="!artworkForm.valid"
-            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors disabled:bg-blue-300"
-          >
+          <button type="submit" [disabled]="!artworkForm.valid"
+            class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors disabled:bg-blue-300">
             {{ (editingArtwork ? 'adminDashboard.form.update' : 'adminDashboard.form.add') | transloco }}
           </button>
         </div>
@@ -199,21 +122,26 @@
 
     <!-- Lista de obras existentes -->
     <div class="bg-white shadow-md rounded-lg p-6">
-      <h2 class="text-xl font-semibold mb-4" *transloco="'adminDashboard.existingArtworks'"></h2>
+      <h2 class="text-xl font-semibold mb-4">{{'adminDashboard.existingArtworks' | transloco}}</h2>
 
       <div *ngIf="artworks.length === 0" class="text-center py-8 text-gray-500">
-        <span *transloco="'adminDashboard.noArtworks'"></span>
+        <span>{{'adminDashboard.noArtworks' | transloco}}</span>
       </div>
 
       <div *ngIf="artworks.length > 0" class="overflow-x-auto">
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
             <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" *transloco="'adminDashboard.table.image'"></th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" *transloco="'adminDashboard.table.title'"></th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" *transloco="'adminDashboard.table.technique'"></th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" *transloco="'adminDashboard.table.price'"></th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" *transloco="'adminDashboard.table.actions'"></th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{'adminDashboard.table.image' | transloco}}</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{'adminDashboard.table.title' | transloco}}</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{'adminDashboard.table.technique' | transloco}}</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{'adminDashboard.table.price' | transloco}}</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {{'adminDashboard.table.actions' | transloco}}</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
@@ -232,16 +160,10 @@
                 {{ artwork.precio }} {{ artwork.moneda }}
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                <button
-                  (click)="editArtwork(artwork)"
-                  class="text-indigo-600 hover:text-indigo-900 mr-3"
-                >
+                <button (click)="editArtwork(artwork)" class="text-indigo-600 hover:text-indigo-900 mr-3">
                   {{ 'adminDashboard.table.edit' | transloco }}
                 </button>
-                <button
-                  (click)="deleteArtwork(artwork.id)"
-                  class="text-red-600 hover:text-red-900"
-                >
+                <button (click)="deleteArtwork(artwork.id)" class="text-red-600 hover:text-red-900">
                   {{ 'adminDashboard.table.delete' | transloco }}
                 </button>
               </td>
