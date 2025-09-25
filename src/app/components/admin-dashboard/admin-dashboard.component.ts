@@ -7,11 +7,12 @@ import { AuthService } from '../../services/auth.service';
 import { Artwork } from '../../models/artwork.model';
 import { Subscription } from 'rxjs';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [FormsModule, CommonModule, TranslocoModule],
+  imports: [FormsModule, CommonModule, TranslocoModule, HeaderComponent],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })

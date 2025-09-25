@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-admin-login',
   standalone: true,
-  imports: [FormsModule, CommonModule, TranslocoModule],
+  imports: [FormsModule, CommonModule, TranslocoModule, HeaderComponent],
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.scss']
 })
