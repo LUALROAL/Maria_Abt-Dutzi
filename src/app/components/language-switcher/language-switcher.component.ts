@@ -24,11 +24,20 @@ export class LanguageSwitcherComponent implements OnInit {
 
   getFlag(lang: string): string {
     const flags: { [key: string]: string } = {
-      'de': '🇩🇪',
-      'en': '🇺🇸',
-      'es': '🇪🇸',
+      'de': '🇩🇪', // Alemania
+      'en': '🇺🇸', // Estados Unidos
+      'es': '🇪🇸', // España
     };
     return flags[lang] || '🌐';
+  }
+
+  getLanguageName(lang: string): string {
+    const names: { [key: string]: string } = {
+      'de': 'Deutsch',
+      'en': 'English',
+      'es': 'Español'
+    };
+    return names[lang] || lang;
   }
 
   toggleDropdown(): void {
