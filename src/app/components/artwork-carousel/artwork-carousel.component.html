@@ -48,12 +48,20 @@
 
     <div class="modal-body">
       <div class="modal-image-container">
+        <!-- Sello de VENDIDO superpuesto en la imagen -->
+        <div *ngIf="currentArtwork?.vendido" class="sold-overlay">
+          <div class="sold-badge">
+            <span class="sold-text">VENDIDO</span>
+          </div>
+        </div>
+
         <img
           [src]="currentArtwork?.imagen"
           [alt]="currentArtwork?.titulo"
           class="modal-image"
           [class.zoomed]="isZoomed"
           [class.panning]="isPanning"
+          [class.sold-image]="currentArtwork?.vendido"
           [style.transform]="getImageTransform()"
           [style.transition]="isPanning ? 'none' : 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)'"
           (click)="toggleZoom($event)"
@@ -96,17 +104,45 @@
             <span class="detail-label">Año:</span>
             <span class="detail-value">{{ currentArtwork.anio }}</span>
           </div>
+          <div class="detail-item">
+            <span class="detail-label">Estado:</span>
+            <span class="detail-value" [class.sold-status]="currentArtwork.vendido">
+              {{ currentArtwork.vendido ? 'Vendido' : 'Disponible' }}
+            </span>
+          </div>
+          <div *ngIf="!currentArtwork.vendido" class="detail-item">
+            <span class="detail-label">Precio:</span>
+            <span class="detail-value price">{{ currentArtwork.precio | currency:currentArtwork.moneda:'symbol':'1.0-0' }}</span>
+          </div>
         </div>
 
         <div class="modal-actions">
-          <button class="btn-buy">
-            <span class="btn-icon">🛒</span>
-            <span class="btn-text">Comprar Obra</span>
-          </button>
-          <button class="btn-contact">
-            <span class="btn-icon">💬</span>
-            <span class="btn-text">Consultar Disponibilidad</span>
-          </button>
+          <!-- Mostrar sello de VENDIDO si la obra está vendida -->
+          <ng-container *ngIf="currentArtwork?.vendido; else availableTemplate">
+            <div class="sold-container">
+              <div class="sold-message">
+                <div class="sold-icon">🎨</div>
+                <h3 class="sold-title">Obra Vendida</h3>
+                <p class="sold-description">Esta pieza única ya encontró su nuevo hogar.</p>
+                <button class="btn-contact">
+                  <span class="btn-icon">💬</span>
+                  <span class="btn-text">Consultar Obras Similares</span>
+                </button>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Mostrar botones de compra si la obra está disponible -->
+          <ng-template #availableTemplate>
+            <button class="btn-buy">
+              <span class="btn-icon">🛒</span>
+              <span class="btn-text">Comprar Obra</span>
+            </button>
+            <button class="btn-contact">
+              <span class="btn-icon">💬</span>
+              <span class="btn-text">Consultar Disponibilidad</span>
+            </button>
+          </ng-template>
         </div>
       </div>
     </div>

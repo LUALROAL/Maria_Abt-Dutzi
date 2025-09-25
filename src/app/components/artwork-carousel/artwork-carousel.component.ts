@@ -2,6 +2,8 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Artwork } from '../../models/artwork.model';
+import { Subscription } from 'rxjs';
+import { ModalStateService } from '../../services/modal-state.service';
 
 @Component({
   selector: 'app-artwork-carousel',
@@ -35,6 +37,20 @@ export class ArtworkCarouselComponent implements OnInit {
   translateY: number = 0;
   // --- END: Properties for panning ---
 
+    private modalStateSubscription: Subscription;
+
+  constructor(private modalStateService: ModalStateService) {
+    // Suscribirse a cambios en el estado del modal
+    this.modalStateSubscription = this.modalStateService.isModalOpen$.subscribe(
+      isOpen => {
+        // Sincronizar el estado local con el servicio
+        if (isOpen !== this.isModalOpen) {
+          this.isModalOpen = isOpen;
+        }
+      }
+    );
+  }
+
   ngOnInit() {
     this.updateCarousel(0);
     this.checkIfMobile();
@@ -45,6 +61,14 @@ export class ArtworkCarouselComponent implements OnInit {
     if (this.artworks.length > 0) {
       this.updateCarousel(this.currentIndex);
     }
+  }
+
+
+  ngOnDestroy() {
+    if (this.modalStateSubscription) {
+      this.modalStateSubscription.unsubscribe();
+    }
+    window.removeEventListener('resize', () => this.checkIfMobile());
   }
 
   updateCarousel(newIndex: number) {
@@ -87,15 +111,17 @@ export class ArtworkCarouselComponent implements OnInit {
   // Modal methods
   openModal() {
     this.isModalOpen = true;
+    this.modalStateService.openModal(); // Notificar al servicio
     this.resetZoomAndPan();
     document.body.style.overflow = 'hidden';
   }
-
-  closeModal() {
+    closeModal() {
     this.isModalOpen = false;
+    this.modalStateService.closeModal(); // Notificar al servicio
     this.resetZoomAndPan();
     document.body.style.overflow = '';
   }
+
 
   // Navegación dentro del modal
   nextInModal() {
