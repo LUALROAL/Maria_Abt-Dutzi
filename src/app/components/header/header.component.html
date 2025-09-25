@@ -1,16 +1,14 @@
-<!-- components/header/header.component.html -->
-<header  class="bg-transparent sm:bg-white/80 backdrop-blur-sm sticky top-0 z-40 border-b border-accent/30 shadow-sm">
-
+<header class="bg-transparent sm:bg-white/80 backdrop-blur-sm sticky top-0 z-40 border-b border-accent/30 shadow-sm">
   <div class="container mx-auto px-4">
     <nav class="flex justify-between items-center py-4">
-      <!-- Logo con el mismo estilo que el hero -->
+      <!-- Logo -->
       <a href="#inicio" class="text-3xl font-light text-primary-dark">
         <span class="font-serif italic">Malaver</span>
       </a>
 
       <!-- Navegación desktop -->
       <ul class="hidden md:flex space-x-8 items-center">
-          <li>
+        <li>
           <a href="#galeria" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
             {{ 'header.gallery' | transloco }}
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
@@ -28,7 +26,6 @@
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
-
         <li>
           <a href="#contacto" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
             {{ 'header.contact' | transloco }}
@@ -36,6 +33,7 @@
           </a>
         </li>
 
+        <!-- Selector de idioma desktop -->
         <li class="ml-4">
           <app-language-switcher></app-language-switcher>
         </li>
@@ -92,12 +90,19 @@
             {{ 'header.contact' | transloco }}
           </a>
         </li>
-        <li class="pt-2">
-          <app-language-switcher></app-language-switcher>
+
+        <!-- Selector de idioma móvil -->
+        <li class="px-4 py-3">
+          <div class="border-t border-accent/20 pt-3">
+            <span class="block text-sm font-light text-text/70 mb-2">{{ 'header.language' | transloco }}</span>
+            <app-language-switcher></app-language-switcher>
+          </div>
         </li>
+
+        <!-- Botón de Login/Logout móvil -->
         <li class="pt-2">
           <ng-container *ngIf="!isAuthenticated; else logoutMobileTemplate">
-            <a routerLink="/admin/login" class="block btn text-center "
+            <a routerLink="/admin/login" class="block btn text-center"
                (click)="isMenuOpen = false">
               <span class="mr-2">🔐</span> {{ 'header.login' | transloco }}
             </a>

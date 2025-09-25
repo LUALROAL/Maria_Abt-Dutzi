@@ -1,8 +1,37 @@
-<div class="language-switcher">
-    <button *ngFor="let lang of availableLangs" 
-            [class.active]="lang === activeLang" 
-            (click)="changeLang(lang)">
-      {{ lang.toUpperCase() }}
+<div class="language-switcher relative">
+  <!-- Botón principal con bandera -->
+  <button
+    type="button"
+    class="flex items-center space-x-1 p-2 rounded-lg hover:bg-accent/20 transition-colors"
+    (click)="toggleDropdown()"
+  >
+    <span class="text-lg">{{ getFlag(activeLang) }}</span>
+    <svg class="w-3 h-3 transform transition-transform"
+         [class.rotate-180]="showDropdown"
+         fill="none"
+         stroke="currentColor"
+         viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Menú desplegable -->
+  <div
+    class="absolute top-full right-0 mt-2 w-32 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg border border-accent/20 overflow-hidden z-50 transition-all duration-300"
+    [class.opacity-0]="!showDropdown"
+    [class.invisible]="!showDropdown"
+    [class.opacity-100]="showDropdown"
+    [class.visible]="showDropdown"
+  >
+    <button
+      *ngFor="let lang of availableLangs"
+      type="button"
+      class="flex items-center space-x-2 w-full px-3 py-2 text-left hover:bg-accent/20 transition-colors"
+      [ngClass]="{ 'bg-accent/30': lang === activeLang }"
+      (click)="changeLang(lang)"
+    >
+      <span class="text-lg">{{ getFlag(lang) }}</span>
+      <span class="text-sm font-light text-text capitalize">{{ lang }}</span>
     </button>
   </div>
-  
+</div>

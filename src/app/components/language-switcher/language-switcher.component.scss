@@ -1,19 +1,29 @@
 .language-switcher {
-    display: flex;
-    gap: 0.5rem;
+  .rotate-180 {
+    transform: rotate(180deg);
   }
-  
-  button {
-    background: none;
-    border: 1px solid #ccc;
-    padding: 0.5rem;
-    cursor: pointer;
-    border-radius: 4px;
+
+  // Asegurar que las transiciones funcionen correctamente
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
   }
-  
-  button.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+
+  // Estados para el dropdown
+  .invisible {
+    visibility: hidden;
   }
-  
+
+  .visible {
+    visibility: visible;
+  }
+
+  .opacity-0 {
+    opacity: 0;
+  }
+
+  .opacity-100 {
+    opacity: 1;
+  }
+}
