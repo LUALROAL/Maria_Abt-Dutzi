@@ -1,61 +1,60 @@
 {
-  "title": "Hola Mundo: {{ language}}",
-  "languages":{
+  "title": "Pintura sobre terciopelo de Colombia: {{ language }}",
+  "languages": {
     "es": "Español",
-    "en": "Ingles",
-    "de": "Aleman"
-
+    "en": "Inglés",
+    "de": "Alemán"
   },
   "header": {
     "gallery": "Galería",
     "artist": "Artista",
     "technique": "Técnica",
     "contact": "Contacto",
-    "login": "Login",
-    "logout": "Logout"
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión"
   },
   "hero": {
-    "title": "Artista Pictórica Profesional",
-    "specialty": "Especialista en <span class=\"font-semibold text-primary-dark\">óleo sobre lienzo</span> y técnicas con <span class=\"font-semibold text-primary-dark\">pincel de pelo (tercio pelo)</span>",
-    "workDescription": "Mi trabajo explora la relación entre la <span class=\"italic\">luz, el color y la textura</span>, creando piezas que invitan a la reflexión y la contemplación.",
+    "title": "María Abt-Dutzi (Malaver)",
+    "specialty": "Especialista en <span class=\"font-semibold text-primary-dark\">pintura sobre terciopelo</span> con técnicas tradicionales colombianas",
+    "workDescription": "Mis obras figurativas se realizan con una técnica única de <span class=\"italic\">puntillismo sobre terciopelo</span>, donde los colores no se mezclan, creando un efecto visual distinto y contemplativo.",
     "exploreGallery": "Explorar Galería",
-    "knowTheArtist": "Conocer Artista",
-    "experience": "Años de Experiencia",
+    "knowTheArtist": "Conocer a la Artista",
+    "experience": "Décadas de Experiencia",
     "worksCreated": "Obras Creadas",
-    "exhibitions": "Exposiciones"
+    "exhibitions": "Exposiciones Internacionales"
   },
   "techniques": {
     "title": "Especialidades Artísticas",
     "subtitle": "Técnicas y Materiales",
-    "description": "Domino diversas técnicas que me permiten expresar mi visión artística con la máxima calidad y autenticidad.",
+    "description": "Mi padre y maestro Guillermo Malaver me enseñó desde niña la pintura en óleo y acrílico, pero sobre todo la técnica tradicional colombiana de pintar sobre terciopelo.",
     "card1": {
-      "title": "Óleo sobre lienzo",
-      "description": "Trabajo con óleos de alta calidad sobre lienzo de lino, permitiendo una mayor durabilidad y intensidad de color en cada obra."
+      "title": "Pintura sobre terciopelo",
+      "description": "Una técnica tradicional colombiana poco conocida en Europa, realizada a base de puntos sobre terciopelo, evitando que los colores se mezclen."
     },
     "card2": {
-      "title": "Pincel de pelo (tercio pelo)",
-      "description": "Utilizo pinceles de pelo natural que permiten un mayor control de la pintura y la creación de texturas únicas y expresivas."
+      "title": "Óleo y acrílico",
+      "description": "Formación en técnicas clásicas de óleo y acrílico, enseñadas por mi padre desde temprana edad."
     },
     "card3": {
-      "title": "Técnicas mixtas",
-      "description": "Combino técnicas tradicionales con enfoques contemporáneos para crear obras únicas que trascienden los límites convencionales."
+      "title": "Obras figurativas",
+      "description": "Mis motivos son principalmente figurativos y buscan transmitir luz, color y textura de manera única."
     },
     "quality": {
-      "title": "Compromiso con la calidad",
-      "description": "Cada material es cuidadosamente seleccionado para garantizar la permanencia y belleza de las obras a través del tiempo.",
-      "item1": "Pigmentos de la más alta calidad",
-      "item2": "Lienzos de lino premium",
-      "item3": "Barnices de protección especializados",
+      "title": "Compromiso artístico",
+      "description": "Todas mis obras llevan la firma 'Malaver' como homenaje a mi padre y mentor.",
+      "item1": "Pintura sobre terciopelo",
+      "item2": "Obras figurativas",
+      "item3": "Formación académica tradicional",
       "experience": {
-        "title": "Años perfeccionando técnicas",
-        "description": "Experiencia que se refleja en cada pincelada"
+        "title": "Una vida dedicada al arte",
+        "description": "Más de 40 años de experiencia artística reflejados en cada obra"
       }
     }
   },
   "gallery": {
     "title": "Colección de Obras",
     "subtitle": "Galería de Arte",
-    "description": "Explora mi colección de obras creadas con técnicas tradicionales y contemporáneas",
+    "description": "Exposiciones realizadas en museos de Colombia y galerías de Europa.",
     "results": "obras encontradas",
     "noResults": {
       "title": "No se encontraron obras que coincidan con tu búsqueda.",
@@ -64,11 +63,10 @@
     "loading": "Cargando obras...",
     "categories": {
       "all": "Todas",
-      "paisajismo": "Paisajismo",
-      "bodegones": "Bodegones",
-      "retratos": "Retratos",
-      "animalismo": "Animalismo",
-      "otros": "Otras"
+      "figurativas": "Figurativas",
+      "sobreTerciopelo": "Sobre Terciopelo",
+      "oleoYAcrilico": "Óleo y Acrílico",
+      "mixtas": "Técnicas Mixtas"
     }
   },
   "footer": {
@@ -83,7 +81,7 @@
       },
       "studio": {
         "title": "Estudio",
-        "address": "Calle Arte 123, Madrid"
+        "address": "Bad Wörishofen, Alemania"
       }
     },
     "social": {
@@ -100,20 +98,30 @@
       }
     },
     "events": {
-      "title": "Próximos Eventos",
-      "subtitle": "Exposiciones",
+      "title": "Exposiciones Realizadas",
+      "subtitle": "Museos y Galerías",
       "event1": {
-        "title": "Galería Moderna",
-        "date": "15 Nov - 30 Dic 2024",
-        "description": "Inauguración: 15 Nov, 19:00h"
+        "title": "Museo de Arte Moderno, Bogotá",
+        "date": "",
+        "description": "Exposición individual en Colombia"
       },
       "event2": {
-        "title": "Feria Internacional",
-        "date": "Enero 2025",
-        "description": "Stand A-15, Pabellón 3"
+        "title": "Museo La Tertulia, Cali",
+        "date": "",
+        "description": "Exposición colectiva"
+      },
+      "event3": {
+        "title": "Galería Luer, Bad Wörishofen",
+        "date": "",
+        "description": "Exposición en Alemania"
+      },
+      "event4": {
+        "title": "Galería Art Gladys, Suiza",
+        "date": "",
+        "description": "Exposición internacional"
       }
     },
-    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Malaver</span>. Todos los derechos reservados.",
+    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Abt-Dutzi (Malaver)</span>. Todos los derechos reservados.",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio"
   },

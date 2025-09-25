@@ -1,5 +1,5 @@
 {
-  "title": "Hallo Welt: {{ language }}",
+  "title": "Samtmalerei aus Kolumbien: {{ language }}",
   "languages": {
     "es": "Spanisch",
     "en": "Englisch",
@@ -7,87 +7,86 @@
   },
   "header": {
     "gallery": "Galerie",
-    "artist": "Künstler",
+    "artist": "Künstlerin",
     "technique": "Technik",
     "contact": "Kontakt",
-    "login": "Anmeldung",
-    "logout": "Abmeldung"
+    "login": "Anmelden",
+    "logout": "Abmelden"
   },
   "hero": {
-    "title": "Professioneller Maler",
-    "specialty": "Spezialist für <span class=\"font-semibold text-primary-dark\">Öl auf Leinwand</span> und Techniken mit <span class=\"font-semibold text-primary-dark\">Haarpinsel (Samtdrittel)</span>",
-    "workDescription": "Meine Arbeit erforscht die Beziehung zwischen <span class=\"italic\">Licht, Farbe und Textur</span> und schafft Stücke, die zum Nachdenken und zur Kontemplation einladen.",
-    "exploreGallery": "Galerie erkunden",
-    "knowTheArtist": "Künstler kennenlernen",
-    "experience": "Jahre Erfahrung",
+    "title": "María Abt-Dutzi (Malaver)",
+    "specialty": "Spezialistin für <span class=\"font-semibold text-primary-dark\">Samtmalerei</span> mit traditionellen kolumbianischen Techniken",
+    "workDescription": "Meine gegenständlichen Werke entstehen mit einer einzigartigen <span class=\"italic\">Punkttechnik auf Samt</span>, bei der sich die Farben nicht vermischen und ein besonderes visuelles Erlebnis entsteht.",
+    "exploreGallery": "Galerie Entdecken",
+    "knowTheArtist": "Die Künstlerin Kennenlernen",
+    "experience": "Jahrzehnte Erfahrung",
     "worksCreated": "Geschaffene Werke",
-    "exhibitions": "Ausstellungen"
+    "exhibitions": "Internationale Ausstellungen"
   },
   "techniques": {
     "title": "Künstlerische Spezialitäten",
     "subtitle": "Techniken und Materialien",
-    "description": "Ich beherrsche verschiedene Techniken, die es mir ermöglichen, meine künstlerische Vision mit höchster Qualität und Authentizität auszudrücken.",
+    "description": "Mein Vater und Lehrer Guillermo Malaver brachte mir schon früh Öl- und Acrylmalerei bei, jedoch vor allem die traditionelle kolumbianische Technik der Malerei auf Samt.",
     "card1": {
-      "title": "Öl auf Leinwand",
-      "description": "Ich arbeite mit hochwertigen Ölen auf Leinenleinwand, was eine längere Haltbarkeit und Farbintensität in jedem Werk ermöglicht."
+      "title": "Samtmalerei",
+      "description": "Eine traditionelle kolumbianische Technik, in Europa kaum bekannt, die ausschließlich mit Punkten auf Samt entsteht, um ein Verlaufen der Farben zu verhindern."
     },
     "card2": {
-      "title": "Haarpinsel (Samtdrittel)",
-      "description": "Ich verwende Naturhaarpinsel, die eine bessere Kontrolle über die Farbe und die Schaffung einzigartiger und ausdrucksstarker Texturen ermöglichen."
+      "title": "Öl- und Acrylmalerei",
+      "description": "Klassische Techniken, die mir mein Vater von Kindheit an vermittelt hat."
     },
     "card3": {
-      "title": "Mischtechniken",
-      "description": "Ich kombine traditionelle Techniken mit zeitgenössischen Ansätzen, um einzigartige Werke zu schaffen, die konventionelle Grenzen überschreiten."
+      "title": "Gegenständliche Werke",
+      "description": "Meine Motive sind überwiegend gegenständlich und vermitteln Licht, Farbe und Textur auf besondere Weise."
     },
     "quality": {
-      "title": "Verpflichtung zur Qualität",
-      "description": "Jedes Material wird sorgfältig ausgewählt, um die Beständigkeit und Schönheit der Werke im Laufe der Zeit zu gewährleisten.",
-      "item1": "Pigmente von höchster Qualität",
-      "item2": "Premium-Leinenleinwände",
-      "item3": "Spezialisierte Schutzlacke",
+      "title": "Künstlerisches Engagement",
+      "description": "Alle meine Werke signiere ich mit 'Malaver' als Dank an meinen Vater und Mentor.",
+      "item1": "Samtmalerei",
+      "item2": "Gegenständliche Kunst",
+      "item3": "Akademische Ausbildung",
       "experience": {
-        "title": "Jahre der Perfektionierung von Techniken",
-        "description": "Erfahrung, die sich in jedem Pinselstrich widerspiegelt"
+        "title": "Ein Leben für die Kunst",
+        "description": "Über 40 Jahre Erfahrung, sichtbar in jedem Werk"
       }
     }
   },
   "gallery": {
-    "title": "Sammlung von Werken",
+    "title": "Werkschau",
     "subtitle": "Kunstgalerie",
-    "description": "Entdecken Sie meine Sammlung von Werken, die mit traditionellen und zeitgenössischen Techniken erstellt wurden",
-    "results": "Werke gefunden",
+    "description": "Ausstellungen in Museen Kolumbiens und Galerien Europas.",
+    "results": "gefundene Werke",
     "noResults": {
-      "title": "Keine Werke gefunden, die Ihrer Suche entsprechen.",
-      "button": "🔄 Filter löschen"
+      "title": "Keine Werke gefunden, die deiner Suche entsprechen.",
+      "button": "🔄 Filter zurücksetzen"
     },
-    "loading": "Lade Werke...",
+    "loading": "Werke werden geladen...",
     "categories": {
       "all": "Alle",
-      "paisajismo": "Landschaftsbau",
-      "bodegones": "Stillleben",
-      "retratos": "Porträts",
-      "animalismo": "Animalismus",
-      "otros": "Andere"
+      "figurativas": "Gegenständliche Werke",
+      "sobreTerciopelo": "Samtmalerei",
+      "oleoYAcrilico": "Öl & Acryl",
+      "mixtas": "Mischtechniken"
     }
   },
   "footer": {
     "contact": {
       "title": "Direkter Kontakt",
-      "subtitle": "Malaver Studio",
+      "subtitle": "Atelier Malaver",
       "email": {
-        "title": "Email"
+        "title": "E-Mail"
       },
       "phone": {
         "title": "Telefon"
       },
       "studio": {
-        "title": "Studio",
-        "address": "Kunststraße 123, Madrid"
+        "title": "Atelier",
+        "address": "Bad Wörishofen, Deutschland"
       }
     },
     "social": {
-      "title": "Folge mir in den sozialen Medien",
-      "subtitle": "Lass uns verbinden",
+      "title": "Folgen Sie mir",
+      "subtitle": "Vernetzen wir uns",
       "instagram": {
         "title": "Instagram"
       },
@@ -99,38 +98,48 @@
       }
     },
     "events": {
-      "title": "Kommende Veranstaltungen",
-      "subtitle": "Ausstellungen",
+      "title": "Ausstellungen",
+      "subtitle": "Museen und Galerien",
       "event1": {
-        "title": "Moderne Galerie",
-        "date": "15. Nov. - 30. Dez. 2024",
-        "description": "Eröffnung: 15. Nov., 19:00 Uhr"
+        "title": "Museo de Arte Moderno, Bogotá",
+        "date": "",
+        "description": "Einzelausstellung in Kolumbien"
       },
       "event2": {
-        "title": "Internationale Messe",
-        "date": "Januar 2025",
-        "description": "Stand A-15, Pavillon 3"
+        "title": "Museo La Tertulia, Cali",
+        "date": "",
+        "description": "Gemeinschaftsausstellung"
+      },
+      "event3": {
+        "title": "Galerie Luer, Bad Wörishofen",
+        "date": "",
+        "description": "Ausstellung in Deutschland"
+      },
+      "event4": {
+        "title": "Galerie Art Gladys, Schweiz",
+        "date": "",
+        "description": "Internationale Ausstellung"
       }
     },
-    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Malaver</span>. Alle Rechte vorbehalten.",
-    "privacy": "Datenschutz-Bestimmungen",
+    "copyright": "&copy; 2024 <span class=\"font-serif italic text-primary-dark\">María Abt-Dutzi (Malaver)</span>. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
     "terms": "Nutzungsbedingungen"
   },
   "adminLogin": {
-    "title": "Anmeldung",
+    "title": "Anmelden",
     "username": "Benutzername",
     "password": "Passwort",
-    "login": "Anmelden",
-    "error": "Falsche Anmeldeinformationen"
+    "login": "Login",
+    "error": "Ungültige Zugangsdaten"
   },
   "adminDashboard": {
-    "title": "Admin-Panel",
+    "title": "Verwaltungsbereich",
     "logout": "Abmelden",
-    "addArtwork": "Neues Kunstwerk hinzufügen",
-    "editArtwork": "Kunstwerk bearbeiten",
-    "existingArtworks": "Bestehende Kunstwerke",
-    "noArtworks": "Keine registrierten Kunstwerke. Fügen Sie Ihr erstes Kunstwerk über das obige Formular hinzu.",
-    "confirmDelete": "Sind Sie sicher, dass Sie dieses Kunstwerk löschen möchten?",
+    "addArtwork": "Neues Werk hinzufügen",
+    "editArtwork": "Werk bearbeiten",
+    "existingArtworks": "Bestehende Werke",
+    "noArtworks": "Keine Werke vorhanden. Fügen Sie Ihr erstes Werk über das Formular oben hinzu.",
+    "confirmDelete": "Möchten Sie dieses Werk wirklich löschen?",
     "form": {
       "title": "Titel *",
       "measures": "Maße *",
@@ -138,7 +147,7 @@
       "style": "Stil",
       "genre": "Genre *",
       "category": "Kategorie *",
-      "status": "Status *",
+      "status": "Zustand *",
       "statusOptions": {
         "new": "Neu",
         "used": "Gebraucht",
@@ -149,14 +158,14 @@
       "year": "Jahr",
       "sold": "Verkauft *",
       "soldOptions": {
-        "no": "Nicht verkauft",
+        "no": "Nicht Verkauft",
         "yes": "Verkauft"
       },
       "image": "Bild-URL *",
       "description": "Beschreibung",
       "cancel": "Abbrechen",
-      "add": "Kunstwerk hinzufügen",
-      "update": "Kunstwerk aktualisieren"
+      "add": "Werk hinzufügen",
+      "update": "Werk aktualisieren"
     },
     "table": {
       "image": "Bild",
@@ -168,14 +177,14 @@
       "delete": "Löschen"
     },
     "success": {
-      "add": "Kunstwerk erfolgreich hinzugefügt",
-      "update": "Kunstwerk erfolgreich aktualisiert",
-      "delete": "Kunstwerk erfolgreich gelöscht"
+      "add": "Werk erfolgreich hinzugefügt",
+      "update": "Werk erfolgreich aktualisiert",
+      "delete": "Werk erfolgreich gelöscht"
     },
     "errors": {
-      "load": "Fehler beim Laden der Kunstwerke",
-      "save": "Fehler beim Speichern des Kunstwerks",
-      "delete": "Fehler beim Löschen des Kunstwerks"
+      "load": "Fehler beim Laden der Werke",
+      "save": "Fehler beim Speichern des Werks",
+      "delete": "Fehler beim Löschen des Werks"
     }
   }
 }
