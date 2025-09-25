@@ -3,14 +3,12 @@
     transform: rotate(180deg);
   }
 
-  // Asegurar que las transiciones funcionen correctamente
   .transition-all {
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
   }
 
-  // Estados para el dropdown
   .invisible {
     visibility: hidden;
   }
@@ -27,9 +25,10 @@
     opacity: 1;
   }
 
-  // Asegurar que las banderas se vean bien
-  .text-2xl {
+  // Estilos específicos para emojis de banderas
+  .flag-emoji {
     font-size: 1.5rem;
     line-height: 1;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
   }
 }

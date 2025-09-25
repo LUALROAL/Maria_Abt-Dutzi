@@ -22,13 +22,24 @@ export class LanguageSwitcherComponent implements OnInit {
     this.availableLangs = this.translocoService.getAvailableLangs() as string[];
   }
 
+  // Método para obtener emojis (como lo tenías)
   getFlag(lang: string): string {
     const flags: { [key: string]: string } = {
-      'de': '🇩🇪', // Alemania
-      'en': '🇺🇸', // Estados Unidos
-      'es': '🇪🇸', // España
+      'de': '🇩🇪',
+      'en': '🇺🇸',
+      'es': '🇪🇸',
     };
     return flags[lang] || '🌐';
+  }
+
+  // Nuevo método para obtener imágenes SVG
+  getFlagImage(lang: string): string {
+    const flagImages: { [key: string]: string } = {
+      'de': '/assets/images/banderas/flag-for-germany.svg',    // Bandera Alemania
+      'en': '/assets/images/banderas/flag-for-united-states.svg',    // Bandera Estados Unidos
+      'es': '/assets/images/banderas/flag-for-spain.svg',    // Bandera España
+    };
+    return flagImages[lang] || '/assets/flags/global.svg';
   }
 
   getLanguageName(lang: string): string {
