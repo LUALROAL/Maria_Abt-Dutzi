@@ -13,16 +13,46 @@ export class LanguageSwitcherComponent implements OnInit {
   availableLangs: string[] = [];
   activeLang: string;
   showDropdown = false;
+  isMobile = false;
 
   constructor(private translocoService: TranslocoService) {
     this.activeLang = this.translocoService.getActiveLang();
+    this.checkScreenSize();
   }
 
   ngOnInit(): void {
     this.availableLangs = this.translocoService.getAvailableLangs() as string[];
   }
 
-  // Método para obtener emojis (como lo tenías)
+  // Método para obtener las clases del dropdown según el dispositivo
+  getDropdownClasses(): string {
+    const baseClasses = 'absolute top-full mt-2 bg-white/95 backdrop-blur-sm rounded-lg shadow-lg border border-accent/20 overflow-hidden z-50 transition-all duration-300';
+    const mobileClasses = this.isMobile ?
+      'left-0 w-full' :
+      'right-0 md:w-auto';
+
+    const visibilityClasses = this.showDropdown ?
+      'opacity-100 visible' :
+      'opacity-0 invisible';
+
+    return `${baseClasses} ${mobileClasses} ${visibilityClasses}`;
+  }
+
+  // Método para verificar el tamaño de pantalla
+  checkScreenSize(): void {
+    this.isMobile = window.innerWidth < 768;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    this.checkScreenSize();
+    // Cerrar dropdown al cambiar de tamaño si es móvil
+    if (this.isMobile && this.showDropdown) {
+      this.showDropdown = false;
+    }
+  }
+
+  // Resto de métodos existentes...
   getFlag(lang: string): string {
     const flags: { [key: string]: string } = {
       'de': '🇩🇪',
@@ -32,12 +62,11 @@ export class LanguageSwitcherComponent implements OnInit {
     return flags[lang] || '🌐';
   }
 
-  // Nuevo método para obtener imágenes SVG
   getFlagImage(lang: string): string {
     const flagImages: { [key: string]: string } = {
-      'de': '/assets/images/banderas/flag-for-germany.svg',    // Bandera Alemania
-      'en': '/assets/images/banderas/flag-for-united-states.svg',    // Bandera Estados Unidos
-      'es': '/assets/images/banderas/flag-for-spain.svg',    // Bandera España
+      'de': '/assets/images/banderas/flag-for-germany.svg',
+      'en': '/assets/images/banderas/flag-for-united-states.svg',
+      'es': '/assets/images/banderas/flag-for-spain.svg',
     };
     return flagImages[lang] || '/assets/flags/global.svg';
   }

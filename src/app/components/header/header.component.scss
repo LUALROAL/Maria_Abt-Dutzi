@@ -1,5 +1,41 @@
 header {
   @media (max-width: 768px) {
-    z-index: 30 !important;
+    z-index: 50 !important;
+
+    // Estilos específicos para el selector de idioma en móvil
+    background-color: aqua !important;
+    .mobile-language-switcher {
+      .language-switcher {
+        width: 100%;
+
+        button {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .absolute {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0;
+          border-radius: 12px 12px 0 0;
+          transform: translateY(0);
+          width: 100% !important;
+          max-width: 100% !important;
+
+          // Animación de slide-up
+          transition: transform 0.3s ease, opacity 0.3s ease;
+
+          &[class*="invisible"] {
+            transform: translateY(100%);
+          }
+
+          &[class*="visible"] {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
   }
 }
