@@ -8,28 +8,44 @@
 
       <!-- Navegación desktop -->
       <ul class="hidden md:flex space-x-8 items-center">
+        <li *ngIf="isAuthenticated">
+          <a routerLink="/admin/dashboard"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
+            {{ 'header.agregar' | transloco }}
+          </a>
+        </li>
+
         <li>
-          <a href="#galeria" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+          <a href="#galeria"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
             {{ 'header.gallery' | transloco }}
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
         <li>
-          <a href="#inicio" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+          <a href="#inicio"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
             {{ 'header.artist' | transloco }}
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
         <li>
-          <a href="#tecnica" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+          <a href="#tecnica"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
             {{ 'header.technique' | transloco }}
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
         <li>
-          <a href="#contacto" class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
+          <a href="#contacto"
+            class="text-text hover:text-primary-dark transition-colors duration-300 font-light relative group">
             {{ 'header.contact' | transloco }}
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
           </a>
         </li>
 
@@ -47,14 +63,14 @@
           </ng-container>
           <ng-template #logoutTemplate>
             <a (click)="logout()" class="btn btn-outline px-4 py-2 text-sm font-light cursor-pointer"
-               style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
+              style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
               <span class="mr-2">🚪</span> {{ 'header.logout' | transloco }}
             </a>
           </ng-template>
         </li>
       </ul>
 
-            <!-- Botón menú móvil -->
+      <!-- Botón menú móvil -->
       <button class="md:hidden p-2 rounded-lg bg-accent/50 hover:bg-accent/30 transition-colors" (click)="toggleMenu()">
         <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -63,30 +79,40 @@
     </nav>
 
     <!-- Menú móvil mejorado -->
-    <div class="md:hidden transition-all duration-300 overflow-hidden"
-         [class.max-h-0]="!isMenuOpen" [class.max-h-[500px]]="isMenuOpen" [class.pb-4]="isMenuOpen">
+    <div class="md:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
+      [class.max-h-[500px]]="isMenuOpen" [class.pb-4]="isMenuOpen">
       <ul class="space-y-2 pt-2">
+        <li *ngIf="isAuthenticated">
+          <a routerLink="/admin/dashboard"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
+            {{ 'header.agregar' | transloco }}
+          </a>
+        </li>
         <li>
           <a href="#inicio" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-             (click)="isMenuOpen = false">
+            (click)="isMenuOpen = false">
             {{ 'header.artist' | transloco }}
           </a>
         </li>
         <li>
-          <a href="#tecnica" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-             (click)="isMenuOpen = false">
+          <a href="#tecnica"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
             {{ 'header.technique' | transloco }}
           </a>
         </li>
         <li>
-          <a href="#galeria" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-             (click)="isMenuOpen = false">
+          <a href="#galeria"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
             {{ 'header.gallery' | transloco }}
           </a>
         </li>
         <li>
-          <a href="#contacto" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-             (click)="isMenuOpen = false">
+          <a href="#contacto"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="isMenuOpen = false">
             {{ 'header.contact' | transloco }}
           </a>
         </li>
@@ -104,14 +130,14 @@
         <li class="pt-3">
           <ng-container *ngIf="!isAuthenticated; else logoutMobileTemplate">
             <a routerLink="/admin/login" class="block btn text-center px-4 py-3 rounded-lg"
-               (click)="isMenuOpen = false">
+              (click)="isMenuOpen = false">
               <span class="mr-2">🔐</span> {{ 'header.login' | transloco }}
             </a>
           </ng-container>
           <ng-template #logoutMobileTemplate>
             <a (click)="logout(); isMenuOpen = false"
-               class="block btn btn-outline text-center px-4 py-3 rounded-lg cursor-pointer"
-               style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
+              class="block btn btn-outline text-center px-4 py-3 rounded-lg cursor-pointer"
+              style="background-color: #FECACA; border-color: #FCA5A5; color: #DC2626;">
               <span class="mr-2">🚪</span> {{ 'header.logout' | transloco }}
             </a>
           </ng-template>
