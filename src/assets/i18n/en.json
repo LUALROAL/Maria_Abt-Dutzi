@@ -62,11 +62,12 @@
     },
     "loading": "Loading works...",
     "categories": {
-      "all": "All",
-      "figurativas": "Figurative",
-      "sobreTerciopelo": "Velvet Painting",
-      "oleoYAcrilico": "Oil & Acrylic",
-      "mixtas": "Mixed Techniques"
+      "todas": "All",
+      "paisajismo": "Landscapes",
+      "bodegones": "Still Life",
+      "retratos": "Portraits",
+      "animalismo": "Animalism",
+      "otros": "Others"
     }
   },
   "footer": {

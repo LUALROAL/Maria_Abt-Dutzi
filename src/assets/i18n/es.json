@@ -62,11 +62,12 @@
     },
     "loading": "Cargando obras...",
     "categories": {
-      "all": "Todas",
-      "figurativas": "Figurativas",
-      "sobreTerciopelo": "Sobre Terciopelo",
-      "oleoYAcrilico": "Óleo y Acrílico",
-      "mixtas": "Técnicas Mixtas"
+      "todas": "Todas",
+      "paisajismo": "Paisajismo",
+      "bodegones": "Bodegones",
+      "retratos": "Retratos",
+      "animalismo": "Animalismo",
+      "otros": "Otros"
     }
   },
   "footer": {

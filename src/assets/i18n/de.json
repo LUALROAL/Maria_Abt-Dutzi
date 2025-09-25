@@ -62,11 +62,12 @@
     },
     "loading": "Werke werden geladen...",
     "categories": {
-      "all": "Alle",
-      "figurativas": "Gegenständliche Werke",
-      "sobreTerciopelo": "Samtmalerei",
-      "oleoYAcrilico": "Öl & Acryl",
-      "mixtas": "Mischtechniken"
+      "todas": "Alle",
+      "paisajismo": "Landschaften",
+      "bodegones": "Stillleben",
+      "retratos": "Porträts",
+      "animalismo": "Animalismus",
+      "otros": "Andere"
     }
   },
   "footer": {
