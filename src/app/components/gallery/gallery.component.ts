@@ -20,8 +20,8 @@ export class GalleryComponent implements OnInit, OnDestroy {
   filteredArtworks: Artwork[] = [];
   isLoading: boolean = true;
 
-  availableCategories: string[] = ['all', 'paisajismo', 'bodegones', 'retratos', 'animalismo', 'otros'];
-  selectedCategory: string = 'all';
+  availableCategories: string[] = ['todas', 'paisajismo', 'bodegones', 'retratos', 'animalismo', 'otros'];
+  selectedCategory: string = 'todas';
   searchTerm: string = '';
 
   private subscription: Subscription = new Subscription();
@@ -76,7 +76,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
     let filtered = this.artworks;
 
     // Filtrar por categoría seleccionada
-    if (this.selectedCategory !== 'all') {
+    if (this.selectedCategory !== 'todas') {
       filtered = filtered.filter(artwork =>
         artwork.categoria.toLowerCase() === this.selectedCategory
       );
@@ -96,7 +96,7 @@ export class GalleryComponent implements OnInit, OnDestroy {
   }
 
   clearFilters(): void {
-    this.selectedCategory = 'all';
+    this.selectedCategory = 'todas';
     this.searchTerm = '';
     this.applyFilters();
   }
