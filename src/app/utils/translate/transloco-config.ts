@@ -16,7 +16,7 @@ export const AvaliablesLanguages = [
 const config: TranslocoGlobalConfig = {
   langs: AvaliablesLanguages,
   defaultLang: AvaliableLanguages.DE,
-  rootTranslationsPath: 'src/assets/i18n',
+  rootTranslationsPath: 'assets/i18n',
 };
 
 export default config;

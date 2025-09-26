@@ -64,9 +64,9 @@ export class LanguageSwitcherComponent implements OnInit {
 
   getFlagImage(lang: string): string {
     const flagImages: { [key: string]: string } = {
-      'de': '/assets/images/banderas/flag-for-germany.svg',
-      'en': '/assets/images/banderas/flag-for-united-states.svg',
-      'es': '/assets/images/banderas/flag-for-spain.svg',
+      'de': 'https://res.cloudinary.com/dvdscvipo/image/upload/v1758847711/flag-for-germany_bjrnij.svg',
+      'en': 'https://res.cloudinary.com/dvdscvipo/image/upload/v1758847712/flag-for-united-states_ups9a2.svg',
+      'es': 'https://res.cloudinary.com/dvdscvipo/image/upload/v1758847711/flag-for-spain_mktzn2.svg',
     };
     return flagImages[lang] || '/assets/flags/global.svg';
   }
