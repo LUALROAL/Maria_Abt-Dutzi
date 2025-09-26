@@ -42,7 +42,7 @@
 </div>
 
 <!-- Modal para vista ampliada - VERSIÓN MEJORADA PARA RESPONSIVIDAD -->
-<div *ngIf="isModalOpen" class="modal-overlay" (click)="closeModal()">
+<div *ngIf="isModalOpen" class="modal-overlay mobile-modal" (click)="closeModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="modal-close" (click)="closeModal()">×</button>
 

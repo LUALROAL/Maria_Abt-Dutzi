@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
@@ -15,6 +15,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  @ViewChild('menuButton') menuButton!: ElementRef;
+  @ViewChild('mobileMenu') mobileMenu!: ElementRef;
   isMenuOpen = false;
   isAuthenticated = false;
   isHeaderVisible = true;
@@ -81,6 +83,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logout(): void {
     this.authService.logout();
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    const isMobile = window.innerWidth < 768; // Tailwind's 'md' breakpoint
+
+    if (this.isMenuOpen && isMobile && this.menuButton && this.mobileMenu) {
+      const clickedInsideButton = this.menuButton.nativeElement.contains(target);
+      const clickedInsideMenu = this.mobileMenu.nativeElement.contains(target);
+
+      if (!clickedInsideButton && !clickedInsideMenu) {
+        this.isMenuOpen = false;
+      }
+    }
   }
 
   @HostListener('document:keydown.escape', ['$event'])

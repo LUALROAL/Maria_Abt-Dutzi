@@ -77,7 +77,7 @@
       </ul>
 
       <!-- Botón menú móvil -->
-      <button class="md:hidden p-2 rounded-lg bg-accent/50 hover:bg-accent/30 transition-colors" (click)="toggleMenu()">
+      <button #menuButton class="md:hidden p-2 rounded-lg bg-accent/50 hover:bg-accent/30 transition-colors" (click)="toggleMenu()">
         <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -85,7 +85,7 @@
     </nav>
 
     <!-- Menú móvil mejorado -->
-    <div class="md:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
+    <div #mobileMenu class="md:hidden transition-all duration-300 overflow-hidden" [class.max-h-0]="!isMenuOpen"
       [class.max-h-[500px]]="isMenuOpen" [class.pb-4]="isMenuOpen">
       <ul class="space-y-2 pt-2">
         <li *ngIf="isAuthenticated">
