@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslocoModule } from '@jsverse/transloco';
 import { LanguageSwitcherComponent } from '../language-switcher/language-switcher.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router'; // Añadir Router
 import { AuthService } from '../../services/auth.service';
-import { ModalStateService } from '../../services/modal-state.service'; // Importar el servicio
+import { ModalStateService } from '../../services/modal-state.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,13 +17,14 @@ import { Subscription } from 'rxjs';
 export class HeaderComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
   isAuthenticated = false;
-  isHeaderVisible = true; // Nueva propiedad para controlar visibilidad
+  isHeaderVisible = true;
   private authSubscription!: Subscription;
   private modalStateSubscription!: Subscription;
 
   constructor(
     private authService: AuthService,
-    private modalStateService: ModalStateService // Inyectar el servicio
+    private modalStateService: ModalStateService,
+    private router: Router // Inyectar Router
   ) {}
 
   ngOnInit(): void {
@@ -31,12 +32,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       status => this.isAuthenticated = status
     );
 
-    // Suscribirse a cambios en el estado del modal
     this.modalStateSubscription = this.modalStateService.isModalOpen$.subscribe(
       isModalOpen => {
         this.isHeaderVisible = !isModalOpen;
-
-        // Cerrar el menú móvil si está abierto cuando se abre el modal
         if (isModalOpen && this.isMenuOpen) {
           this.isMenuOpen = false;
         }
@@ -57,11 +55,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  // Nueva función para navegar y cerrar el menú
+  navigateAndCloseMenu(fragment: string): void {
+    this.isMenuOpen = false;
+
+    // Navegar al fragmento después de un pequeño delay para permitir que el menú se cierre
+    setTimeout(() => {
+      this.router.navigate(['/'], { fragment: fragment }).then(() => {
+        // Scroll suave al elemento después de la navegación
+        this.scrollToFragment(fragment);
+      });
+    }, 100);
+  }
+
+  // Función para scroll suave al fragmento
+  private scrollToFragment(fragment: string): void {
+    const element = document.getElementById(fragment);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
   logout(): void {
     this.authService.logout();
   }
 
-  // Manejar la tecla ESC para cerrar el menú móvil
   @HostListener('document:keydown.escape', ['$event'])
   handleEscapeKey(event: KeyboardEvent) {
     if (this.isMenuOpen) {

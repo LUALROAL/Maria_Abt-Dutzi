@@ -96,29 +96,30 @@
           </a>
         </li>
         <li>
-          <a href="#inicio" class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-            (click)="isMenuOpen = false">
+          <a routerLink="/" fragment="inicio"
+            class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
+            (click)="navigateAndCloseMenu('inicio')">
             {{ 'header.artist' | transloco }}
           </a>
         </li>
         <li>
-          <a href="#tecnica"
+          <a routerLink="/" fragment="tecnica"
             class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-            (click)="isMenuOpen = false">
+            (click)="navigateAndCloseMenu('tecnica')">
             {{ 'header.technique' | transloco }}
           </a>
         </li>
         <li>
-          <a href="#galeria"
+          <a routerLink="/" fragment="galeria"
             class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-            (click)="isMenuOpen = false">
+            (click)="navigateAndCloseMenu('galeria')">
             {{ 'header.gallery' | transloco }}
           </a>
         </li>
         <li>
-          <a href="#contacto"
+          <a routerLink="/" fragment="contacto"
             class="block px-4 py-3 text-text hover:bg-accent/20 rounded-lg transition-colors font-light"
-            (click)="isMenuOpen = false">
+            (click)="navigateAndCloseMenu('contacto')">
             {{ 'header.contact' | transloco }}
           </a>
         </li>
