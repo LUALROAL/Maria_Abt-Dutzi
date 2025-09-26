@@ -207,8 +207,17 @@
   },
   "bio": {
     "title": "Velvet Painting from Colombia",
-    "date": "March 2023",
+    "date": "March 2025",
     "location": "Life of the painter María Abt-Dutzi, Bad Wörishofen",
+      "techniqueTitle": "Specialized Technique",
+  "techniqueDescription": "Velvet painting using traditional Colombian pointillism technique",
+  "experienceTitle": "Experience",
+  "experienceYears": "Over 40 years dedicated to art",
+  "childhoodTitle": "Childhood and Training",
+  "careerTitle": "Artistic Career in Colombia",
+  "germanyTitle": "Life and Career in Germany",
+  "legacyTitle": "Artistic Legacy",
+  "legacyDescription": "My work represents the fusion of two cultures, keeping traditional Colombian techniques alive while adapting them to the European context, creating an artistic bridge between continents.",
     "paragraphs": {
       "p1": "On July 29, 1952, I was born in Bogotá, the capital of Colombia, as the second daughter of academic painter Guillermo Malaver and his wife Margarita.",
       "p2": "When I was about 11 years old, my father discovered that I had inherited his talent. From that moment on, he regularly taught me oil and acrylic painting.",
